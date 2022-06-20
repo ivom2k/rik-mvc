@@ -1,4 +1,7 @@
-public class Person : IBaseEntityId {
+namespace Domain.Models;
+using Domain.Base;
+
+public class Person : BaseEntityId {
 
     public string FirstName { get; set; } = default!;
 

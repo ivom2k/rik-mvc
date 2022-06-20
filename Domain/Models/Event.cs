@@ -1,4 +1,7 @@
-public class Event : IBaseEntityId {
+namespace Domain.Models;
+using Domain.Base;
+
+public class Event : BaseEntityId {
 
     public string Name { get; set; } = default!;
     

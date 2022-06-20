@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  rik-db:
+    container_name: rik-db
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    environment:
+      - SA_PASSWORD=Password123
+      - ACCEPT_EULA=Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - rik-db-volume:/var/lib/mssql/data
+
+volumes:
+  rik-db-volume:

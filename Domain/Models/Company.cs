@@ -1,4 +1,7 @@
-public class Company : IBaseEntityId {
+namespace Domain.Models;
+using Domain.Base;
+
+public class Company : BaseEntityId {
 
     public string Name { get; set; } = default!;
 
@@ -8,7 +11,7 @@ public class Company : IBaseEntityId {
 
     public Guid PaymentTypeId { get; set; }
 
-    public PaymentType PaymentType { get; set; }
+    public PaymentType PaymentType { get; set; } = default!;
 
     public string? Notes { get; set; } = default!;
 

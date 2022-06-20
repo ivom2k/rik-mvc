@@ -1,18 +1,19 @@
-public class ApplicaitonDbContext {
+namespace Domain;
+using Microsoft.EntityFrameworkCore;
+public class ApplicationDbContext : DbContext {
 
-    public DbSet<Company> Companies { get; set; } = default!;
+    public DbSet<Models.Company> Companies { get; set; } = default!;
 
-    public DbSet<Event> Events { get; set; } = default!;
+    public DbSet<Models.Event> Events { get; set; } = default!;
 
-    public DbSet<Participation> Participations { get; set; } = default!;
+    public DbSet<Models.Participation> Participations { get; set; } = default!;
 
-    public DbSet<PaymentType> PaymentTypes { get; set; } = default!;
+    public DbSet<Models.PaymentType> PaymentTypes { get; set; } = default!;
     
-    public DbSet<Person> Persons { get; set; } = default!;
+    public DbSet<Models.Person> Persons { get; set; } = default!;
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
         
     }
-
 }

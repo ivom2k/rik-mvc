@@ -1,4 +1,7 @@
-public class PaymentType : IBaseEntityId {
+namespace Domain.Models;
+using Domain.Base;
+
+public class PaymentType : BaseEntityId {
 
     public string Type { get; set; } = default!;
 

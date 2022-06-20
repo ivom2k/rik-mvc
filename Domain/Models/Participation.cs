@@ -1,4 +1,7 @@
-public class Participation : IBaseEntityId {
+namespace Domain.Models;
+using Domain.Base;
+
+public class Participation : BaseEntityId {
 
     public Guid EventId { get; set; }
     public Event Event { get; set; }
