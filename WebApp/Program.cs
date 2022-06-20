@@ -6,6 +6,8 @@ var sqlString = builder.Configuration.GetConnectionString("MsSqlConnection");
 
 builder.Services.AddDbContext<Domain.ApplicationDbContext>(options => options.UseSqlServer(sqlString));
 
+builder.Services.AddAutoMapper(typeof(AutoMapperRepositoryEntity));
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

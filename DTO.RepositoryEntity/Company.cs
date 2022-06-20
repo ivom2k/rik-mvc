@@ -1,8 +1,7 @@
-namespace Domain.Models;
+﻿namespace DTO.RepositoryEntity;
 using Domain.Base;
-
-public class Company : BaseEntityId {
-
+public class Company : BaseEntityId
+{
     public string Name { get; set; } = default!;
 
     public int Code { get; set; }
