@@ -2,6 +2,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain.Interfaces\Domain.Interfaces.csproj" />
+    <ProjectReference Include="Repositories.Interfaces.csproj" />
+    <ProjectReference Include="..\DTO.RepositoryEntity\DTO.RepositoryEntity.csproj" />
+    <ProjectReference Include="..\Domain.Base\Domain.Base.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
