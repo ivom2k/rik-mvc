@@ -10,7 +10,7 @@ public class BaseMapper<TOut, TIn> : IBaseMapper<TOut, TIn>
         Mapper = mapper;
     }
 
-    public TOut? Map(TIn entity)
+    public TOut? Map(TIn? entity)
     {
         return Mapper.Map<TOut>(entity);
     }

@@ -23,4 +23,6 @@ public interface IBaseRepository<TEntity, TKey> where TEntity : class, IBaseEnti
     TEntity Remove(TEntity entity);
     
     TEntity Remove(TKey id);
+
+    TEntity FirstOrDefault(TKey id);
 }
