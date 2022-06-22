@@ -1,10 +1,14 @@
 using Microsoft.EntityFrameworkCore;
+using UnitOfWork.Interfaces;
+using UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var sqlString = builder.Configuration.GetConnectionString("MsSqlConnection");
 
 builder.Services.AddDbContext<Domain.ApplicationDbContext>(options => options.UseSqlServer(sqlString));
+
+builder.Services.AddScoped<IAppUnitOfWork, AppUnitOfWork>();
 
 builder.Services.AddAutoMapper(typeof(AutoMapperRepositoryEntity));
 
