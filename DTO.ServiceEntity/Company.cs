@@ -1,5 +1,6 @@
-﻿namespace DTO.RepositoryEntity;
+﻿namespace DTO.ServiceEntity;
 using Domain.Base;
+
 public class Company : BaseEntityId
 {
     public string Name { get; set; } = default!;
@@ -10,9 +11,9 @@ public class Company : BaseEntityId
 
     public Guid PaymentTypeId { get; set; }
 
-    public PaymentType? PaymentType { get; set; }
+    public DTO.ServiceEntity.PaymentType? PaymentType { get; set; }
 
     public string? Notes { get; set; } = default!;
 
-    public ICollection<DTO.RepositoryEntity.Participation>? Participations { get; set; }
+    public ICollection<DTO.ServiceEntity.Participation>? Participations { get; set; }
 }
