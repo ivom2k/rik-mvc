@@ -1,4 +1,5 @@
 namespace Domain.Models;
+
 using Domain.Base;
 
 public class Event : BaseEntityId {
@@ -12,5 +13,4 @@ public class Event : BaseEntityId {
     public string Notes { get; set; } = default!;
 
     public ICollection<Participation>? Participations { get; set; }
-
 }
