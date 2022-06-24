@@ -5,6 +5,8 @@
     <ProjectReference Include="..\Domain.Interfaces\Domain.Interfaces.csproj" />
     <ProjectReference Include="..\Repositories.Interfaces\Repositories.Interfaces.csproj" />
     <ProjectReference Include="..\Mappers.Interfaces\Mappers.Interfaces.csproj" />
+    <ProjectReference Include="..\UnitOfWork\UnitOfWork.csproj" />
+    <ProjectReference Include="..\Mappers.ServiceEntity\Mappers.ServiceEntity.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -1,7 +1,5 @@
 namespace Mappers.RepositoryEntity;
 using Mappers;
-using DTO.RepositoryEntity;
-using Domain;
 
 public class ParticipationMapper : BaseMapper<DTO.RepositoryEntity.Participation, Domain.Models.Participation>
 {

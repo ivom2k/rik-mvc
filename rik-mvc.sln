@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO.ServiceEntity", "DTO.ServiceEntity\DTO.ServiceEntity.csproj", "{C8B7A39B-792E-4D8F-BA95-2E1846AD3EA9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mappers.ServiceEntity", "Mappers.ServiceEntity\Mappers.ServiceEntity.csproj", "{58114916-AD25-4D39-876A-0C489261F699}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -102,5 +104,9 @@ Global
 		{C8B7A39B-792E-4D8F-BA95-2E1846AD3EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8B7A39B-792E-4D8F-BA95-2E1846AD3EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8B7A39B-792E-4D8F-BA95-2E1846AD3EA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58114916-AD25-4D39-876A-0C489261F699}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58114916-AD25-4D39-876A-0C489261F699}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58114916-AD25-4D39-876A-0C489261F699}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58114916-AD25-4D39-876A-0C489261F699}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
