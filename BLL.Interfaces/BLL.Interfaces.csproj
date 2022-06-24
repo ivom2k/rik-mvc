@@ -4,6 +4,7 @@
     <ProjectReference Include="..\Repositories.Interfaces\Repositories.Interfaces.csproj" />
     <ProjectReference Include="..\Domain.Interfaces\Domain.Interfaces.csproj" />
     <ProjectReference Include="..\UnitOfWork\UnitOfWork.csproj" />
+    <ProjectReference Include="..\DTO.ServiceEntity\DTO.ServiceEntity.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

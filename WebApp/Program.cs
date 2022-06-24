@@ -10,7 +10,9 @@ builder.Services.AddDbContext<Domain.ApplicationDbContext>(options => options.Us
 
 builder.Services.AddScoped<IAppUnitOfWork, AppUnitOfWork>();
 
-builder.Services.AddAutoMapper(typeof(AutoMapperRepositoryEntity));
+builder.Services.AddAutoMapper(
+    typeof(AutoMapperRepositoryEntity), 
+    typeof(AutoMapperServiceEntity));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

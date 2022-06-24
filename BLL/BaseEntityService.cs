@@ -35,46 +35,46 @@ where TRepositoryEntity : class, IBaseEntityId<TKey>
 
     public TServiceEntity Add(TServiceEntity entity)
     {
-        throw new NotImplementedException();
+        return Mapper.Map(Repository.Add(Mapper.Map(entity)!))!;
     }
 
-    public Task<bool> ExistsAsync(TKey id)
+    public async Task<bool> ExistsAsync(TKey id)
     {
-        throw new NotImplementedException();
+        return await Repository.ExistsAsync(id);
     }
 
     public TServiceEntity FirstOrDefault(TKey id)
     {
-        throw new NotImplementedException();
+        return Mapper.Map(Repository.FirstOrDefault(id)!)!;
     }
 
-    public Task<TServiceEntity> FirstOrDefaultAsync(TKey id)
+    public async Task<TServiceEntity> FirstOrDefaultAsync(TKey id)
     {
-        throw new NotImplementedException();
+        return Mapper.Map((await Repository.FirstOrDefaultAsync(id)!))!;
     }
 
-    public Task<IEnumerable<TServiceEntity>> GetAllAsync()
+    public async Task<IEnumerable<TServiceEntity>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        return (await Repository.GetAllAsync()).Select(e => Mapper.Map(e)!);
     }
 
     public TServiceEntity Remove(TServiceEntity entity)
     {
-        throw new NotImplementedException();
+        return Mapper.Map(Repository.Remove(Mapper.Map(entity)!))!;
     }
 
     public TServiceEntity Remove(TKey id)
     {
-        throw new NotImplementedException();
+        return Mapper.Map(Repository.Remove(id))!;
     }
 
-    public Task<TServiceEntity> RemoveAsync(TKey id)
+    public async Task<TServiceEntity> RemoveAsync(TKey id)
     {
-        throw new NotImplementedException();
+        return Mapper.Map(await Repository.RemoveAsync(id))!;
     }
 
     public TServiceEntity Update(TServiceEntity entity)
     {
-        throw new NotImplementedException();
+        return Mapper.Map(Repository.Update(Mapper.Map(entity)!))!;
     }
 }
