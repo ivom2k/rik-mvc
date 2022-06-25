@@ -10,6 +10,21 @@ namespace Domain.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Companies",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Code = table.Column<int>(type: "int", nullable: false),
+                    ParticipantsCount = table.Column<int>(type: "int", nullable: false),
+                    Notes = table.Column<string>(type: "nvarchar(max)", maxLength: 5000, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Companies", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Events",
                 columns: table => new
                 {
@@ -37,27 +52,6 @@ namespace Domain.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Companies",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Code = table.Column<int>(type: "int", nullable: false),
-                    ParticipantsCount = table.Column<int>(type: "int", nullable: false),
-                    Notes = table.Column<string>(type: "nvarchar(max)", maxLength: 5000, nullable: true),
-                    PaymentTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Companies", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Companies_PaymentTypes_PaymentTypeId",
-                        column: x => x.PaymentTypeId,
-                        principalTable: "PaymentTypes",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Persons",
                 columns: table => new
                 {
@@ -65,17 +59,11 @@ namespace Domain.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PersonalIdentificationCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Notes = table.Column<string>(type: "nvarchar(1500)", maxLength: 1500, nullable: false),
-                    PaymentTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    Notes = table.Column<string>(type: "nvarchar(1500)", maxLength: 1500, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Persons", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Persons_PaymentTypes_PaymentTypeId",
-                        column: x => x.PaymentTypeId,
-                        principalTable: "PaymentTypes",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -116,11 +104,6 @@ namespace Domain.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Companies_PaymentTypeId",
-                table: "Companies",
-                column: "PaymentTypeId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Participations_CompanyId",
                 table: "Participations",
                 column: "CompanyId");
@@ -139,11 +122,6 @@ namespace Domain.Migrations
                 name: "IX_Participations_PersonId",
                 table: "Participations",
                 column: "PersonId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Persons_PaymentTypeId",
-                table: "Persons",
-                column: "PaymentTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -158,10 +136,10 @@ namespace Domain.Migrations
                 name: "Events");
 
             migrationBuilder.DropTable(
-                name: "Persons");
+                name: "PaymentTypes");
 
             migrationBuilder.DropTable(
-                name: "PaymentTypes");
+                name: "Persons");
         }
     }
 }

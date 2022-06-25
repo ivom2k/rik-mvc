@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220625121419_InitialMigration")]
+    [Migration("20220625124134_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,12 +44,7 @@ namespace Domain.Migrations
                     b.Property<int>("ParticipantsCount")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("PaymentTypeId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("PaymentTypeId");
 
                     b.ToTable("Companies");
                 });
@@ -145,25 +140,13 @@ namespace Domain.Migrations
                         .HasMaxLength(1500)
                         .HasColumnType("nvarchar(1500)");
 
-                    b.Property<Guid?>("PaymentTypeId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("PersonalIdentificationCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PaymentTypeId");
-
                     b.ToTable("Persons");
-                });
-
-            modelBuilder.Entity("Domain.Models.Company", b =>
-                {
-                    b.HasOne("Domain.Models.PaymentType", null)
-                        .WithMany("Companies")
-                        .HasForeignKey("PaymentTypeId");
                 });
 
             modelBuilder.Entity("Domain.Models.Participation", b =>
@@ -179,7 +162,7 @@ namespace Domain.Migrations
                         .IsRequired();
 
                     b.HasOne("Domain.Models.PaymentType", "PaymentType")
-                        .WithMany()
+                        .WithMany("Participations")
                         .HasForeignKey("PaymentTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -197,13 +180,6 @@ namespace Domain.Migrations
                     b.Navigation("Person");
                 });
 
-            modelBuilder.Entity("Domain.Models.Person", b =>
-                {
-                    b.HasOne("Domain.Models.PaymentType", null)
-                        .WithMany("Persons")
-                        .HasForeignKey("PaymentTypeId");
-                });
-
             modelBuilder.Entity("Domain.Models.Company", b =>
                 {
                     b.Navigation("Participations");
@@ -216,9 +192,7 @@ namespace Domain.Migrations
 
             modelBuilder.Entity("Domain.Models.PaymentType", b =>
                 {
-                    b.Navigation("Companies");
-
-                    b.Navigation("Persons");
+                    b.Navigation("Participations");
                 });
 
             modelBuilder.Entity("Domain.Models.Person", b =>

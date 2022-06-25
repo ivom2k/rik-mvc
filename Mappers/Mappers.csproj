@@ -15,6 +15,7 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Mappers.Interfaces\Mappers.Interfaces.csproj" />
     <ProjectReference Include="..\DTO.ServiceEntity\DTO.ServiceEntity.csproj" />
+    <ProjectReference Include="..\DTO.Public\DTO.Public.csproj" />
   </ItemGroup>
 
 </Project>

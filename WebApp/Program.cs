@@ -15,7 +15,8 @@ builder.Services.AddScoped<IAppBll, Bll>();
 
 builder.Services.AddAutoMapper(
     typeof(AutoMapperRepositoryEntity), 
-    typeof(AutoMapperServiceEntity));
+    typeof(AutoMapperServiceEntity),
+    typeof(AutoMapperPublicEntity));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

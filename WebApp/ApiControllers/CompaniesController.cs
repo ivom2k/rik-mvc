@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Domain;
 using Domain.Models;
+using BLL.Interfaces.App;
 
 namespace WebApp.ApiControllers
 {
@@ -15,6 +16,8 @@ namespace WebApp.ApiControllers
     public class CompaniesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly IAppBll _bll;
+        private readonly 
 
         public CompaniesController(ApplicationDbContext context)
         {
