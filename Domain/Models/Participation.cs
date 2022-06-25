@@ -13,4 +13,8 @@ public class Participation : BaseEntityId {
     public Guid? CompanyId { get; set; }
 
     public Company? Company { get; set; }
+
+    public Guid PaymentTypeId { get; set; }
+
+    public PaymentType? PaymentType { get; set; }
 }

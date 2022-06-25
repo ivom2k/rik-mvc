@@ -9,10 +9,6 @@ public class Person : BaseEntityId
 
     public string PersonalIdentificationCode { get; set; } = default!;
 
-    public Guid PaymentTypeId { get; set; }
-
-    public PaymentType? PaymentType { get; set; }
-
     public string Notes { get; set; } = default!;
 
     public ICollection<DTO.RepositoryEntity.Participation>? Participations { get; set; }

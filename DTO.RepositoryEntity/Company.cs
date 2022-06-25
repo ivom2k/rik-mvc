@@ -8,10 +8,6 @@ public class Company : BaseEntityId
 
     public int ParticipantsCount { get; set; }
 
-    public Guid PaymentTypeId { get; set; }
-
-    public PaymentType? PaymentType { get; set; }
-
     public string? Notes { get; set; } = default!;
 
     public ICollection<DTO.RepositoryEntity.Participation>? Participations { get; set; }

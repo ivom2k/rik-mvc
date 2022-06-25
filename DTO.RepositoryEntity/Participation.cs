@@ -14,4 +14,8 @@ public class Participation : BaseEntityId
     public Guid? CompanyId { get; set; }
 
     public DTO.RepositoryEntity.Company? Company { get; set; }
+
+    public Guid PaymentTypeId { get; set; }
+
+    public PaymentType? PaymentType { get; set; }
 }

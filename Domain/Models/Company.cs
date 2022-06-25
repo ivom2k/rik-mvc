@@ -1,4 +1,6 @@
 namespace Domain.Models;
+
+using System.ComponentModel.DataAnnotations;
 using Domain.Base;
 
 public class Company : BaseEntityId {
@@ -9,10 +11,7 @@ public class Company : BaseEntityId {
 
     public int ParticipantsCount { get; set; }
 
-    public Guid PaymentTypeId { get; set; }
-
-    public PaymentType? PaymentType { get; set; }
-
+    [MaxLength(5000)]
     public string? Notes { get; set; } = default!;
 
     public ICollection<Participation>? Participations { get; set; }

@@ -44,8 +44,8 @@ namespace Domain.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Code = table.Column<int>(type: "int", nullable: false),
                     ParticipantsCount = table.Column<int>(type: "int", nullable: false),
-                    PaymentTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Notes = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Notes = table.Column<string>(type: "nvarchar(max)", maxLength: 5000, nullable: true),
+                    PaymentTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -54,8 +54,7 @@ namespace Domain.Migrations
                         name: "FK_Companies_PaymentTypes_PaymentTypeId",
                         column: x => x.PaymentTypeId,
                         principalTable: "PaymentTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -66,8 +65,8 @@ namespace Domain.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PersonalIdentificationCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PaymentTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Notes = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Notes = table.Column<string>(type: "nvarchar(1500)", maxLength: 1500, nullable: false),
+                    PaymentTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -76,8 +75,7 @@ namespace Domain.Migrations
                         name: "FK_Persons_PaymentTypes_PaymentTypeId",
                         column: x => x.PaymentTypeId,
                         principalTable: "PaymentTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -87,7 +85,8 @@ namespace Domain.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     EventId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PersonId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    PaymentTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -101,6 +100,12 @@ namespace Domain.Migrations
                         name: "FK_Participations_Events_EventId",
                         column: x => x.EventId,
                         principalTable: "Events",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Participations_PaymentTypes_PaymentTypeId",
+                        column: x => x.PaymentTypeId,
+                        principalTable: "PaymentTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -124,6 +129,11 @@ namespace Domain.Migrations
                 name: "IX_Participations_EventId",
                 table: "Participations",
                 column: "EventId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Participations_PaymentTypeId",
+                table: "Participations",
+                column: "PaymentTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Participations_PersonId",

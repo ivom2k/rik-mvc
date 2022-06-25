@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220624162053_InitialMigration")]
+    [Migration("20220625121419_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,12 +38,13 @@ namespace Domain.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
+                        .HasMaxLength(5000)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ParticipantsCount")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("PaymentTypeId")
+                    b.Property<Guid?>("PaymentTypeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -91,6 +92,9 @@ namespace Domain.Migrations
                     b.Property<Guid>("EventId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("PaymentTypeId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("PersonId")
                         .HasColumnType("uniqueidentifier");
 
@@ -99,6 +103,8 @@ namespace Domain.Migrations
                     b.HasIndex("CompanyId");
 
                     b.HasIndex("EventId");
+
+                    b.HasIndex("PaymentTypeId");
 
                     b.HasIndex("PersonId");
 
@@ -136,9 +142,10 @@ namespace Domain.Migrations
 
                     b.Property<string>("Notes")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1500)
+                        .HasColumnType("nvarchar(1500)");
 
-                    b.Property<Guid>("PaymentTypeId")
+                    b.Property<Guid?>("PaymentTypeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PersonalIdentificationCode")
@@ -154,13 +161,9 @@ namespace Domain.Migrations
 
             modelBuilder.Entity("Domain.Models.Company", b =>
                 {
-                    b.HasOne("Domain.Models.PaymentType", "PaymentType")
+                    b.HasOne("Domain.Models.PaymentType", null)
                         .WithMany("Companies")
-                        .HasForeignKey("PaymentTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PaymentType");
+                        .HasForeignKey("PaymentTypeId");
                 });
 
             modelBuilder.Entity("Domain.Models.Participation", b =>
@@ -175,6 +178,12 @@ namespace Domain.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Domain.Models.PaymentType", "PaymentType")
+                        .WithMany()
+                        .HasForeignKey("PaymentTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Domain.Models.Person", "Person")
                         .WithMany("Participations")
                         .HasForeignKey("PersonId");
@@ -183,18 +192,16 @@ namespace Domain.Migrations
 
                     b.Navigation("Event");
 
+                    b.Navigation("PaymentType");
+
                     b.Navigation("Person");
                 });
 
             modelBuilder.Entity("Domain.Models.Person", b =>
                 {
-                    b.HasOne("Domain.Models.PaymentType", "PaymentType")
+                    b.HasOne("Domain.Models.PaymentType", null)
                         .WithMany("Persons")
-                        .HasForeignKey("PaymentTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PaymentType");
+                        .HasForeignKey("PaymentTypeId");
                 });
 
             modelBuilder.Entity("Domain.Models.Company", b =>
