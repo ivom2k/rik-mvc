@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Domain;
-using Domain.Models;
+using DTO.Public;
+using AutoMapper;
+using BLL.Interfaces.App;
 
 namespace WebApp.ApiControllers
 {
@@ -14,40 +15,43 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class PaymentTypesController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAppBll _bll;
+        private readonly Mappers.PublicEntity.PaymentTypeMapper _mapper;
 
-        public PaymentTypesController(ApplicationDbContext context)
+
+        public PaymentTypesController(IAppBll bll, IMapper autoMapper)
         {
-            _context = context;
+            _bll = bll;
+            _mapper = new Mappers.PublicEntity.PaymentTypeMapper(autoMapper);
         }
 
         // GET: api/PaymentTypes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PaymentType>>> GetPaymentTypes()
         {
-          if (_context.PaymentTypes == null)
-          {
-              return NotFound();
-          }
-            return await _context.PaymentTypes.ToListAsync();
+            if (_bll.PaymentTypes == null)
+            {
+                return NotFound();
+            }
+            return (await _bll.PaymentTypes.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
         }
 
         // GET: api/PaymentTypes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<PaymentType>> GetPaymentType(Guid id)
         {
-          if (_context.PaymentTypes == null)
-          {
-              return NotFound();
-          }
-            var paymentType = await _context.PaymentTypes.FindAsync(id);
+            if (_bll.PaymentTypes == null)
+            {
+                return NotFound();
+            }
+            var paymentType = await _bll.PaymentTypes.FirstOrDefaultAsync(id);
 
             if (paymentType == null)
             {
                 return NotFound();
             }
 
-            return paymentType;
+            return _mapper.Map(paymentType);
         }
 
         // PUT: api/PaymentTypes/5
@@ -60,11 +64,11 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(paymentType).State = EntityState.Modified;
+            _bll.PaymentTypes.Update(_mapper.Map(paymentType));
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _bll.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -86,12 +90,15 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<PaymentType>> PostPaymentType(PaymentType paymentType)
         {
-          if (_context.PaymentTypes == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.PaymentTypes'  is null.");
-          }
-            _context.PaymentTypes.Add(paymentType);
-            await _context.SaveChangesAsync();
+            if (_bll.PaymentTypes == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.PaymentTypes'  is null.");
+            }
+            
+            var newId = _bll.PaymentTypes.Add(_mapper.Map(paymentType)).Id;
+            await _bll.SaveChangesAsync();
+            
+            paymentType.Id = newId;
 
             return CreatedAtAction("GetPaymentType", new { id = paymentType.Id }, paymentType);
         }
@@ -100,25 +107,25 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePaymentType(Guid id)
         {
-            if (_context.PaymentTypes == null)
+            if (_bll.PaymentTypes == null)
             {
                 return NotFound();
             }
-            var paymentType = await _context.PaymentTypes.FindAsync(id);
+            var paymentType = await _bll.PaymentTypes.FirstOrDefaultAsync(id);
             if (paymentType == null)
             {
                 return NotFound();
             }
 
-            _context.PaymentTypes.Remove(paymentType);
-            await _context.SaveChangesAsync();
+            _bll.PaymentTypes.Remove(paymentType);
+            await _bll.SaveChangesAsync();
 
             return NoContent();
         }
 
         private bool PaymentTypeExists(Guid id)
         {
-            return (_context.PaymentTypes?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _bll.PaymentTypes.Exists(id);
         }
     }
 }

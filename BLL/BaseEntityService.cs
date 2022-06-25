@@ -38,6 +38,11 @@ where TRepositoryEntity : class, IBaseEntityId<TKey>
         return Mapper.Map(Repository.Add(Mapper.Map(entity)!))!;
     }
 
+    public bool Exists(TKey id)
+    {
+        return Repository.Exists(id);
+    }
+
     public async Task<bool> ExistsAsync(TKey id)
     {
         return await Repository.ExistsAsync(id);

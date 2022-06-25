@@ -38,6 +38,11 @@ where TDbContext : DbContext
         return Mapper.Map(RepoDbSet.Add(Mapper.Map(entity)!).Entity)!;
     }
 
+    public bool Exists(TKey id)
+    {
+        return RepoDbSet.Any(e => e.Id.Equals(id));
+    }
+
     public async virtual Task<bool> ExistsAsync(TKey id)
     {
         return await RepoDbSet.AnyAsync(e => e.Id.Equals(id));

@@ -23,6 +23,8 @@
     <ProjectReference Include="..\UnitOfWork\UnitOfWork.csproj" />
     <ProjectReference Include="..\BLL.Interfaces\BLL.Interfaces.csproj" />
     <ProjectReference Include="..\BLL\BLL.csproj" />
+    <ProjectReference Include="..\Mappers.PublicEntity\Mappers.PublicEntity.csproj" />
+    <ProjectReference Include="..\DTO.Public\DTO.Public.csproj" />
   </ItemGroup>
 
 </Project>

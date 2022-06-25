@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Domain;
-using Domain.Models;
+using DTO.Public;
+using AutoMapper;
+using BLL.Interfaces.App;
 
 namespace WebApp.ApiControllers
 {
@@ -14,40 +15,42 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class ParticipationsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAppBll _bll;
+        private readonly Mappers.PublicEntity.ParticipationMapper _mapper;
 
-        public ParticipationsController(ApplicationDbContext context)
+        public ParticipationsController(IAppBll bll, IMapper autoMapper)
         {
-            _context = context;
+            _bll = bll;
+            _mapper = new Mappers.PublicEntity.ParticipationMapper(autoMapper);
         }
 
         // GET: api/Participations
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Participation>>> GetParticipations()
         {
-          if (_context.Participations == null)
+          if (_bll.Participations == null)
           {
               return NotFound();
           }
-            return await _context.Participations.ToListAsync();
+            return (await _bll.Participations.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
         }
 
         // GET: api/Participations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Participation>> GetParticipation(Guid id)
         {
-          if (_context.Participations == null)
+          if (_bll.Participations == null)
           {
               return NotFound();
           }
-            var participation = await _context.Participations.FindAsync(id);
+            var participation = await _bll.Participations.FirstOrDefaultAsync(id);
 
             if (participation == null)
             {
                 return NotFound();
             }
 
-            return participation;
+            return _mapper.Map(participation);
         }
 
         // PUT: api/Participations/5
@@ -60,11 +63,11 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(participation).State = EntityState.Modified;
+            _bll.Participations.Update(_mapper.Map(participation));
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _bll.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -86,12 +89,14 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Participation>> PostParticipation(Participation participation)
         {
-          if (_context.Participations == null)
+          if (_bll.Participations == null)
           {
               return Problem("Entity set 'ApplicationDbContext.Participations'  is null.");
           }
-            _context.Participations.Add(participation);
-            await _context.SaveChangesAsync();
+            var newId = _bll.Participations.Add(_mapper.Map(participation)).Id;
+            await _bll.SaveChangesAsync();
+
+            participation.Id = newId;
 
             return CreatedAtAction("GetParticipation", new { id = participation.Id }, participation);
         }
@@ -100,25 +105,25 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteParticipation(Guid id)
         {
-            if (_context.Participations == null)
+            if (_bll.Participations == null)
             {
                 return NotFound();
             }
-            var participation = await _context.Participations.FindAsync(id);
+            var participation = await _bll.Participations.FirstOrDefaultAsync(id);
             if (participation == null)
             {
                 return NotFound();
             }
 
-            _context.Participations.Remove(participation);
-            await _context.SaveChangesAsync();
+            _bll.Participations.Remove(participation);
+            await _bll.SaveChangesAsync();
 
             return NoContent();
         }
 
         private bool ParticipationExists(Guid id)
         {
-            return (_context.Participations?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _bll.Participations.Exists(id);
         }
     }
 }

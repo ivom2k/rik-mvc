@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Domain;
-using Domain.Models;
+using AutoMapper;
+using DTO.Public;
+using BLL.Interfaces.App;
 
 namespace WebApp.ApiControllers
 {
@@ -14,40 +15,43 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class PersonsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IAppBll _bll;
+        private readonly Mappers.PublicEntity.PersonMapper _mapper;
 
-        public PersonsController(ApplicationDbContext context)
+        public PersonsController(IAppBll bll, IMapper autoMapper)
         {
-            _context = context;
+            _bll = bll;
+            _mapper = new Mappers.PublicEntity.PersonMapper(autoMapper);
         }
 
         // GET: api/Persons
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Person>>> GetPersons()
         {
-          if (_context.Persons == null)
-          {
-              return NotFound();
-          }
-            return await _context.Persons.ToListAsync();
+            if (_bll.Persons == null)
+            {
+                return NotFound();
+            }
+            
+            return (await _bll.Persons.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
         }
 
         // GET: api/Persons/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Person>> GetPerson(Guid id)
         {
-          if (_context.Persons == null)
-          {
-              return NotFound();
-          }
-            var person = await _context.Persons.FindAsync(id);
+            if (_bll.Persons == null)
+            {
+                return NotFound();
+            }
+            var person = await _bll.Persons.FirstOrDefaultAsync(id);
 
             if (person == null)
             {
                 return NotFound();
             }
 
-            return person;
+            return _mapper.Map(person);
         }
 
         // PUT: api/Persons/5
@@ -60,11 +64,11 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(person).State = EntityState.Modified;
+            _bll.Persons.Update(_mapper.Map(person));
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _bll.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -86,12 +90,15 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Person>> PostPerson(Person person)
         {
-          if (_context.Persons == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.Persons'  is null.");
-          }
-            _context.Persons.Add(person);
-            await _context.SaveChangesAsync();
+            if (_bll.Persons == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Persons'  is null.");
+            }
+            
+            var newId = _bll.Persons.Add(_mapper.Map(person)).Id;
+            await _bll.SaveChangesAsync();
+
+            person.Id = newId;
 
             return CreatedAtAction("GetPerson", new { id = person.Id }, person);
         }
@@ -100,25 +107,25 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePerson(Guid id)
         {
-            if (_context.Persons == null)
+            if (_bll.Persons == null)
             {
                 return NotFound();
             }
-            var person = await _context.Persons.FindAsync(id);
+            var person = await _bll.Persons.FirstOrDefaultAsync(id);
             if (person == null)
             {
                 return NotFound();
             }
 
-            _context.Persons.Remove(person);
-            await _context.SaveChangesAsync();
+            _bll.Persons.Remove(person);
+            await _bll.SaveChangesAsync();
 
             return NoContent();
         }
 
         private bool PersonExists(Guid id)
         {
-            return (_context.Persons?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _bll.Persons.Exists(id);
         }
     }
 }

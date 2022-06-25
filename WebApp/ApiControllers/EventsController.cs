@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Domain;
-using Domain.Models;
+using DTO.Public;
+using AutoMapper;
+using BLL.Interfaces.App;
 
 namespace WebApp.ApiControllers
 {
@@ -14,40 +15,43 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class EventsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        
+        private readonly IAppBll _bll;
+        private readonly Mappers.PublicEntity.EventMapper _mapper;
 
-        public EventsController(ApplicationDbContext context)
+        public EventsController(IAppBll bll, IMapper autoMapper)
         {
-            _context = context;
+            _bll = bll;
+            _mapper = new Mappers.PublicEntity.EventMapper(autoMapper);
         }
 
         // GET: api/Events
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Event>>> GetEvents()
         {
-          if (_context.Events == null)
+          if (_bll.Events == null)
           {
               return NotFound();
           }
-            return await _context.Events.ToListAsync();
+            return (await _bll.Events.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
         }
 
         // GET: api/Events/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetEvent(Guid id)
         {
-          if (_context.Events == null)
+          if (_bll.Events == null)
           {
               return NotFound();
           }
-            var @event = await _context.Events.FindAsync(id);
+            var @event = await _bll.Events.FirstOrDefaultAsync(id);
 
             if (@event == null)
             {
                 return NotFound();
             }
 
-            return @event;
+            return _mapper.Map(@event);
         }
 
         // PUT: api/Events/5
@@ -60,11 +64,11 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _context.Entry(@event).State = EntityState.Modified;
+            _bll.Events.Update(_mapper.Map(@event));
 
             try
             {
-                await _context.SaveChangesAsync();
+                await _bll.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -86,12 +90,14 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Event>> PostEvent(Event @event)
         {
-          if (_context.Events == null)
+          if (_bll.Events == null)
           {
               return Problem("Entity set 'ApplicationDbContext.Events'  is null.");
           }
-            _context.Events.Add(@event);
-            await _context.SaveChangesAsync();
+            var newId = _bll.Events.Add(_mapper.Map(@event)).Id;
+            await _bll.SaveChangesAsync();
+
+            @event.Id = newId;
 
             return CreatedAtAction("GetEvent", new { id = @event.Id }, @event);
         }
@@ -100,25 +106,27 @@ namespace WebApp.ApiControllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEvent(Guid id)
         {
-            if (_context.Events == null)
+            if (_bll.Events == null)
             {
                 return NotFound();
             }
-            var @event = await _context.Events.FindAsync(id);
+            
+            var @event = await _bll.Events.FirstOrDefaultAsync(id);
+            
             if (@event == null)
             {
                 return NotFound();
             }
 
-            _context.Events.Remove(@event);
-            await _context.SaveChangesAsync();
+            _bll.Events.Remove(@event);
+            await _bll.SaveChangesAsync();
 
             return NoContent();
         }
 
         private bool EventExists(Guid id)
         {
-            return (_context.Events?.Any(e => e.Id == id)).GetValueOrDefault();
+            return _bll.Events.Exists(id);
         }
     }
 }
