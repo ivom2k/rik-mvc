@@ -12,4 +12,9 @@ public class Person : BaseEntityId
     public string Notes { get; set; } = default!;
 
     public ICollection<DTO.ServiceEntity.Participation>? Participations { get; set; }
+
+    public string GetFullName()
+    {
+        return $"{this.FirstName} {this.LastName}";
+    }
 }

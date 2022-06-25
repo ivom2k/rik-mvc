@@ -8,4 +8,6 @@ public class PersonService : BaseEntityService<DTO.ServiceEntity.Person, DTO.Rep
     public PersonService(IPersonRepository repository, IBaseMapper<DTO.ServiceEntity.Person, DTO.RepositoryEntity.Person> mapper) : base(repository, mapper)
     {
     }
+
+    
 }

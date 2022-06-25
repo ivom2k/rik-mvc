@@ -11,5 +11,7 @@ public class Person : BaseEntityId
 
     public string Notes { get; set; } = default!;
 
+    public string FullName { get; set; } = default!;
+
     public ICollection<DTO.Public.Participation>? Participations { get; set; }
 }

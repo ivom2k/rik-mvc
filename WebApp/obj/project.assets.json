@@ -3169,6 +3169,20 @@
           "bin/placeholder/Domain.Interfaces.dll": {}
         }
       },
+      "DTO.Public/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Domain.Base": "1.0.0",
+          "Domain.Interfaces": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DTO.Public.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTO.Public.dll": {}
+        }
+      },
       "DTO.RepositoryEntity/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3202,6 +3216,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "11.0.1",
+          "DTO.Public": "1.0.0",
           "DTO.RepositoryEntity": "1.0.0",
           "DTO.ServiceEntity": "1.0.0",
           "Domain": "1.0.0",
@@ -3222,6 +3237,22 @@
         },
         "runtime": {
           "bin/placeholder/Mappers.Interfaces.dll": {}
+        }
+      },
+      "Mappers.PublicEntity/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "DTO.Public": "1.0.0",
+          "DTO.ServiceEntity": "1.0.0",
+          "Mappers": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Mappers.PublicEntity.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Mappers.PublicEntity.dll": {}
         }
       },
       "Mappers.RepositoryEntity/1.0.0": {
@@ -9744,6 +9775,11 @@
       "path": "../Domain.Interfaces/Domain.Interfaces.csproj",
       "msbuildProject": "../Domain.Interfaces/Domain.Interfaces.csproj"
     },
+    "DTO.Public/1.0.0": {
+      "type": "project",
+      "path": "../DTO.Public/DTO.Public.csproj",
+      "msbuildProject": "../DTO.Public/DTO.Public.csproj"
+    },
     "DTO.RepositoryEntity/1.0.0": {
       "type": "project",
       "path": "../DTO.RepositoryEntity/DTO.RepositoryEntity.csproj",
@@ -9763,6 +9799,11 @@
       "type": "project",
       "path": "../Mappers.Interfaces/Mappers.Interfaces.csproj",
       "msbuildProject": "../Mappers.Interfaces/Mappers.Interfaces.csproj"
+    },
+    "Mappers.PublicEntity/1.0.0": {
+      "type": "project",
+      "path": "../Mappers.PublicEntity/Mappers.PublicEntity.csproj",
+      "msbuildProject": "../Mappers.PublicEntity/Mappers.PublicEntity.csproj"
     },
     "Mappers.RepositoryEntity/1.0.0": {
       "type": "project",
@@ -9795,8 +9836,10 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "BLL >= 1.0.0",
       "BLL.Interfaces >= 1.0.0",
+      "DTO.Public >= 1.0.0",
       "Domain >= 1.0.0",
       "Mappers >= 1.0.0",
+      "Mappers.PublicEntity >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.6",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.6",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.6",
@@ -9837,6 +9880,12 @@
             },
             "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
+              "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj"
+            },
+            "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj": {
+              "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj"
             },
             "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj": {
               "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj"

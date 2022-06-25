@@ -33,7 +33,7 @@ namespace WebApp.ApiControllers
             {
                 return NotFound();
             }
-            return (await _bll.Companies.GetAllAsync()).Select(e => _mapper.Map(e)).ToList()!;
+            return (await _bll.Companies.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
         }
 
         // GET: api/Companies/5
