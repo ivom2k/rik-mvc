@@ -33,7 +33,13 @@ namespace WebApp.ApiControllers
             {
                 return NotFound();
             }
-            return (await _bll.Events.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
+            // return (await _bll.Events.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
+
+            return (await _bll.Events.GetAllAsync()).Select(e => {
+                var valueWithParticipantsCount = _bll.GetEventWithParticipantsCount(e.Id);
+
+                return _mapper.Map(valueWithParticipantsCount.Result);
+            }).ToList();
         }
 
         // GET: api/Events/5

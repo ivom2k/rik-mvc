@@ -53,7 +53,7 @@ public class Bll : BaseBll, IAppBll
     {
         var totalParticipations = 0;
 
-        var @event = await _events.FirstOrDefaultAsync(id);
+        var @event = await Events.FirstOrDefaultAsync(id);
 
         var participationsWithEventId = (await Participations.GetAllAsync()).Where(p => p.EventId.Equals(@event.Id)).ToList();
 
