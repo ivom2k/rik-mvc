@@ -50,7 +50,7 @@ where TDbContext : DbContext
 
     public TRepositoryEntity FirstOrDefault(TKey id)
     {
-        return Mapper.Map(RepoDbSet.FirstOrDefault(e => e.Id.Equals(id)))!;
+        return Mapper.Map(RepoDbSet.AsNoTracking().FirstOrDefault(e => e.Id.Equals(id)))!;
     }
 
     public async virtual Task<TRepositoryEntity> FirstOrDefaultAsync(TKey id)

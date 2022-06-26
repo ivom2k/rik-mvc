@@ -15,7 +15,7 @@ namespace WebApp.ApiControllers
     [ApiController]
     public class EventsController : ControllerBase
     {
-        
+
         private readonly IAppBll _bll;
         private readonly Mappers.PublicEntity.EventMapper _mapper;
 
@@ -29,10 +29,10 @@ namespace WebApp.ApiControllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Event>>> GetEvents()
         {
-          if (_bll.Events == null)
-          {
-              return NotFound();
-          }
+            if (_bll.Events == null)
+            {
+                return NotFound();
+            }
             return (await _bll.Events.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
         }
 
@@ -40,11 +40,12 @@ namespace WebApp.ApiControllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetEvent(Guid id)
         {
-          if (_bll.Events == null)
-          {
-              return NotFound();
-          }
-            var @event = await _bll.Events.FirstOrDefaultAsync(id);
+            if (_bll.Events == null)
+            {
+                return NotFound();
+            }
+            // var @event = await _bll.Events.FirstOrDefaultAsync(id);
+            var @event = await _bll.GetEventWithParticipantsCount(id);
 
             if (@event == null)
             {
@@ -90,10 +91,10 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Event>> PostEvent(Event @event)
         {
-          if (_bll.Events == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.Events'  is null.");
-          }
+            if (_bll.Events == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Events'  is null.");
+            }
             var newId = _bll.Events.Add(_mapper.Map(@event)).Id;
             await _bll.SaveChangesAsync();
 
@@ -110,9 +111,9 @@ namespace WebApp.ApiControllers
             {
                 return NotFound();
             }
-            
+
             var @event = await _bll.Events.FirstOrDefaultAsync(id);
-            
+
             if (@event == null)
             {
                 return NotFound();

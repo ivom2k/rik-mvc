@@ -33,7 +33,7 @@ namespace WebApp.ApiControllers
                 return NotFound();
             }
             
-            return (await _bll.Persons.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
+            return (await _bll.Persons.GetAllWithFullNameAsync()).Select(e => _mapper.Map(e)).ToList();
         }
 
         // GET: api/Persons/5
@@ -44,7 +44,7 @@ namespace WebApp.ApiControllers
             {
                 return NotFound();
             }
-            var person = await _bll.Persons.FirstOrDefaultAsync(id);
+            var person = await _bll.Persons.GetFirstOrDefaultWithFullNameAsync(id);
 
             if (person == null)
             {

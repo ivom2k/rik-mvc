@@ -11,5 +11,7 @@ public class Event : BaseEntityId
 
     public string Notes { get; set; } = default!;
 
+    public int? TotalParticipants { get; set; }
+
     public ICollection<DTO.Public.Participation>? Participations { get; set; }
 }

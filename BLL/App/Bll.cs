@@ -48,4 +48,31 @@ public class Bll : BaseBll, IAppBll
     {
         return await UnitOfWork.SaveChangesAsync();
     }
+
+    public async Task<DTO.ServiceEntity.Event> GetEventWithParticipantsCount(Guid id)
+    {
+        var totalParticipations = 0;
+
+        var @event = await _events.FirstOrDefaultAsync(id);
+
+        var participationsWithEventId = (await Participations.GetAllAsync()).Where(p => p.EventId.Equals(@event.Id)).ToList();
+
+        foreach (var participation in participationsWithEventId)
+        {
+            if (participation.PersonId != null)
+            {
+                totalParticipations += 1;
+            }
+            else
+            {
+                var company = await Companies.FirstOrDefaultAsync(participation.CompanyId.Value);
+
+                totalParticipations += company.ParticipantsCount;
+            }
+        }
+
+        @event.TotalParticipants = totalParticipations;
+
+        return @event;
+    }
 }

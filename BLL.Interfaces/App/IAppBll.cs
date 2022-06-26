@@ -12,4 +12,6 @@ public interface IAppBll : IBll
     IPaymentTypeService PaymentTypes { get; }
 
     IPersonService Persons { get; }
+
+    public Task<DTO.ServiceEntity.Event> GetEventWithParticipantsCount(Guid id);
 }
