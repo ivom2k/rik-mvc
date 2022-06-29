@@ -26,23 +26,31 @@ namespace WebApp.ApiControllers
 
         // GET: api/Participations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Participation>>> GetParticipations()
+        public async Task<ActionResult<IEnumerable<Participation>>> GetParticipations([FromQuery] string? IdEvent)
         {
-          if (_bll.Participations == null)
-          {
-              return NotFound();
-          }
-            return (await _bll.Participations.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
+            if (_bll.Participations == null)
+            {
+                return NotFound();
+            }
+            
+            var query = await _bll.Participations.GetAllAsync();
+            
+            if (IdEvent != null)
+            {
+                query = query.Where(p => p.EventId.Equals(Guid.Parse(IdEvent)));
+            }
+
+            return query.Select(e => _mapper.Map(e)).ToList();
         }
 
         // GET: api/Participations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Participation>> GetParticipation(Guid id)
         {
-          if (_bll.Participations == null)
-          {
-              return NotFound();
-          }
+            if (_bll.Participations == null)
+            {
+                return NotFound();
+            }
             var participation = await _bll.Participations.FirstOrDefaultAsync(id);
 
             if (participation == null)
@@ -89,10 +97,10 @@ namespace WebApp.ApiControllers
         [HttpPost]
         public async Task<ActionResult<Participation>> PostParticipation(Participation participation)
         {
-          if (_bll.Participations == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.Participations'  is null.");
-          }
+            if (_bll.Participations == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Participations'  is null.");
+            }
             var newId = _bll.Participations.Add(_mapper.Map(participation)).Id;
             await _bll.SaveChangesAsync();
 
