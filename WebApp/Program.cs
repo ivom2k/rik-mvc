@@ -3,6 +3,7 @@ using UnitOfWork.Interfaces;
 using UnitOfWork;
 using BLL.App;
 using BLL.Interfaces.App;
+using Mappers.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
