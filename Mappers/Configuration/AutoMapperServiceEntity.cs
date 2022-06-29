@@ -1,3 +1,5 @@
+namespace Mappers.Configuration;
+
 using AutoMapper;
 
 public class AutoMapperServiceEntity : Profile

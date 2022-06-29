@@ -1,4 +1,6 @@
-    using AutoMapper;
+namespace Mappers.Configuration;
+
+using AutoMapper;
 
 public class AutoMapperRepositoryEntity : Profile
 {

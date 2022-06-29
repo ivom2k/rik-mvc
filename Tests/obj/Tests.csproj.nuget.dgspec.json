@@ -4,14 +4,206 @@
     "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Tests\\Tests.csproj": {
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL.Interfaces\\BLL.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Tests\\Tests.csproj",
-        "projectName": "Tests",
-        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Tests\\Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL.Interfaces\\BLL.Interfaces.csproj",
+        "projectName": "BLL.Interfaces",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL.Interfaces\\BLL.Interfaces.csproj",
         "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Tests\\obj\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL.Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\UnitOfWork\\UnitOfWork.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\UnitOfWork\\UnitOfWork.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL\\BLL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL\\BLL.csproj",
+        "projectName": "BLL",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL.Interfaces\\BLL.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL.Interfaces\\BLL.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.ServiceEntity\\Mappers.ServiceEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.ServiceEntity\\Mappers.ServiceEntity.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\UnitOfWork\\UnitOfWork.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\UnitOfWork\\UnitOfWork.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj",
+        "projectName": "Domain.Base",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj",
+        "projectName": "Domain.Interfaces",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,7 +229,731 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj",
+        "projectName": "DTO.Public",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj",
+        "projectName": "DTO.RepositoryEntity",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj",
+        "projectName": "DTO.ServiceEntity",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj",
+        "projectName": "Mappers.Interfaces",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj",
+        "projectName": "Mappers.RepositoryEntity",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.ServiceEntity\\Mappers.ServiceEntity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.ServiceEntity\\Mappers.ServiceEntity.csproj",
+        "projectName": "Mappers.ServiceEntity",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.ServiceEntity\\Mappers.ServiceEntity.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.ServiceEntity\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj",
+        "projectName": "Mappers",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj",
+        "projectName": "Repositories.Interfaces",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Base\\Domain.Base.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj",
+        "projectName": "Repositories",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Tests\\Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Tests\\Tests.csproj",
+        "projectName": "Tests",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Tests\\Tests.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL.Interfaces\\BLL.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL.Interfaces\\BLL.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL\\BLL.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\BLL\\BLL.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\UnitOfWork\\UnitOfWork.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\UnitOfWork\\UnitOfWork.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[6.0.6, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.1.0, )"
@@ -57,6 +973,87 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\UnitOfWork\\UnitOfWork.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\UnitOfWork\\UnitOfWork.csproj",
+        "projectName": "UnitOfWork",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\UnitOfWork\\UnitOfWork.csproj",
+        "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\UnitOfWork\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj"
+              },
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.6, )"
             }
           },
           "imports": [
