@@ -7,6 +7,7 @@ using Mappers.Configuration;
 using UnitOfWork.Interfaces;
 using UnitOfWork;
 using BLL.App;
+using Mappers.PublicEntity;
 
 namespace Tests;
 
@@ -33,6 +34,7 @@ public class EventTests
         var mockMapper = new MapperConfiguration(configuration => {
             configuration.AddProfile<AutoMapperRepositoryEntity>();
             configuration.AddProfile<AutoMapperServiceEntity>();
+            configuration.AddProfile<AutoMapperPublicEntity>();
         });
 
         _mapper = mockMapper.CreateMapper();
@@ -61,9 +63,58 @@ public class EventTests
         };
 
         _bll.Events.Add(@event);
+        await _bll.SaveChangesAsync();
         var result = await _bll.Events.GetAllAsync();
 
         Assert.NotNull(result);
         Assert.Single(result);
     }
+
+    [Fact]
+    public async void Test_Event_Returns_Correct_Partipation_Count_For_Single_Person()
+    {
+        var eventMapper = new EventMapper(_mapper);
+
+        var @event = new DTO.ServiceEntity.Event
+        {
+            Name = "Test event",
+            StartTime = DateTime.UtcNow,
+            Location = "Testland",
+            Notes = "Test notes"
+        };
+
+        var person = new DTO.ServiceEntity.Person
+        {
+            FirstName = "TesFirstName",
+            LastName = "TestLastName",
+            PersonalIdentificationCode = "34501234215",
+            Notes = "TestNotes"
+        };
+
+        var paymentType = new DTO.ServiceEntity.PaymentType
+        {
+            Type = "Kaardimakse"
+        };
+
+        var eventId = _bll.Events.Add(@event).Id;
+        var personId = _bll.Persons.Add(person).Id;
+        var paymentTypeId = _bll.PaymentTypes.Add(paymentType).Id;
+        
+        var participation = new DTO.ServiceEntity.Participation
+        {
+            EventId = eventId,
+            PersonId = personId,
+            PaymentTypeId = paymentTypeId
+        };
+        
+        _bll.Participations.Add(participation);
+        await _bll.SaveChangesAsync();
+        
+        var result = eventMapper.Map(await _bll.GetEventWithParticipantsCount(eventId));       
+
+        Assert.NotNull(result);
+        Assert.IsType<DTO.Public.Event>(result);
+        Assert.Equal(1, result.TotalParticipants);
+    }
+
 }
