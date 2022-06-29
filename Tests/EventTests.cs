@@ -48,4 +48,22 @@ public class EventTests
         Assert.NotNull(events);
         Assert.Empty(events);
     }
+
+    [Fact]
+    public async void Test_Events_Can_Add_An_Event()
+    {
+        var @event = new DTO.ServiceEntity.Event
+        {
+            Name = "Test event",
+            StartTime = DateTime.UtcNow,
+            Location = "Testland",
+            Notes = "Test notes"
+        };
+
+        _bll.Events.Add(@event);
+        var result = await _bll.Events.GetAllAsync();
+
+        Assert.NotNull(result);
+        Assert.Single(result);
+    }
 }
