@@ -117,4 +117,51 @@ public class EventTests
         Assert.Equal(1, result.TotalParticipants);
     }
 
+    [Fact]
+    public async void Test_Event_Returns_Correct_Partipation_Count_For_Company_People()
+    {
+        var eventMapper = new EventMapper(_mapper);
+
+        var @event = new DTO.ServiceEntity.Event
+        {
+            Name = "Test event",
+            StartTime = DateTime.UtcNow,
+            Location = "Testland",
+            Notes = "Test notes"
+        };
+
+        var company = new DTO.ServiceEntity.Company
+        {
+            Name = "Test company",
+            Code = 77000312,
+            ParticipantsCount = 12,
+            Notes = "Accountants department"
+        };
+
+        var paymentType = new DTO.ServiceEntity.PaymentType
+        {
+            Type = "Sularaha"
+        };
+
+        var eventId = _bll.Events.Add(@event).Id;
+        var companyId = _bll.Companies.Add(company).Id;
+        var paymentTypeId = _bll.PaymentTypes.Add(paymentType).Id;
+
+        var participation = new DTO.ServiceEntity.Participation
+        {
+            EventId = eventId,
+            CompanyId = companyId,
+            PaymentTypeId = paymentTypeId
+        };
+
+        _bll.Participations.Add(participation);
+        await _bll.SaveChangesAsync();
+        
+        var result = eventMapper.Map(await _bll.GetEventWithParticipantsCount(eventId));       
+
+        Assert.NotNull(result);
+        Assert.IsType<DTO.Public.Event>(result);
+        Assert.Equal(12, result.TotalParticipants);
+    }
+
 }
