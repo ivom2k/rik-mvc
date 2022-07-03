@@ -4,6 +4,6 @@
 
 <template>
 <div class="d-flex">
-<div>Home</div>
+<div>Payment types</div>
 </div>
 </template>
