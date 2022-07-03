@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 
 const personService = new PersonService();
 
-export const personStore = defineStore("personStore",
+export const usePersonStore = defineStore("personStore",
 {
     state: () => ({
         persons: [] as IPerson[]

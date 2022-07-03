@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 
 const participationService = new ParticipationService();
 
-export const participationStore = defineStore("participationStore",
+export const useParticipationStore = defineStore("participationStore",
 {
     state: () => ({
         participations: [] as IParticipation[]

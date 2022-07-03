@@ -4,6 +4,6 @@
 
 <template>
 <div class="d-flex">
-<p>Home</p>
+<h4 class="display-6">Home</h4>
 </div>
 </template>

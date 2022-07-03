@@ -1,4 +1,9 @@
 <script setup lang="ts">
+import { usePaymentTypeStore } from '@/stores/paymentTypeStore';
+
+
+const paymentTypeStore = usePaymentTypeStore();
+
 
 </script>
 

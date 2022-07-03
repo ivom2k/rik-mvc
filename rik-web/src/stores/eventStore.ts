@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 
 const eventService = new EventService();
 
-export const eventStore = defineStore("eventStore",
+export const useEventStore = defineStore("eventStore",
 {
     state: () => ({
         events: [] as IEvent[]

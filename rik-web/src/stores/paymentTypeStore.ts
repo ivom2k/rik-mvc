@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 
 const paymentTypeService = new PaymentTypeService();
 
-export const paymentTypeStore = defineStore("paymentTypeStore",
+export const usePaymentTypeStore = defineStore("paymentTypeStore",
 {
     state: () => ({
         paymentTypes: [] as IPaymentType[]
