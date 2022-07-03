@@ -4,6 +4,8 @@
 
 <template>
 <div class="d-flex">
-<div>Payment types</div>
+<h4 class="display-6">Index</h4>
+
+
 </div>
 </template>
