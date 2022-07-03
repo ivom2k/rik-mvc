@@ -4,6 +4,7 @@ using UnitOfWork;
 using BLL.App;
 using BLL.Interfaces.App;
 using Mappers.Configuration;
+using Microsoft.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,16 @@ builder.Services.AddAutoMapper(
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddCors(options => 
+{
+    options.AddPolicy("CorsAllowAll",
+    policyBuilder => {
+        policyBuilder.AllowAnyOrigin();
+        policyBuilder.AllowAnyHeader();
+        policyBuilder.AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,6 +47,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseCors("CorsAllowAll");
 
 app.UseAuthorization();
 
