@@ -3,7 +3,7 @@
 </script>
 
 <template>
-<div class="d-flex">
-<h4 class="display-6">Home</h4>
+<div class="container">
+<h4 class="display-6">Avaleht</h4>
 </div>
 </template>

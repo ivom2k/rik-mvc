@@ -16,7 +16,7 @@ const router = createRouter({
         
         { path: "/paymenttypes", name: "paymenttypes", component: PaymentTypeIndex },
         { path: "/createpaymenttype", name: "createpaymenttype", component: PaymentTypeCreate },
-        { path: "/editpaymenttype", name: "editpaymenttype", component: PaymentTypeEdit },
+        { path: "/editpaymenttype/:id", name: "editpaymenttype", component: PaymentTypeEdit, props: true },
         { path: "/createevent", name: "createevent", component: EventCreate }
     ]
 })
