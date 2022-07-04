@@ -16,7 +16,7 @@ import { RouterLink } from 'vue-router';
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <RouterLink to="/createevent" class="nav-link">Uus sündmus</RouterLink>
+                            <RouterLink to="/createevent" class="nav-link">Uus üritus</RouterLink>
                         </li>
                         <li class="nav-item">
                             <RouterLink to="/paymenttypes" class="nav-link">Maksetüübid</RouterLink>

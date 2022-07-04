@@ -6,5 +6,5 @@ export default interface IEvent extends IUniqueIdentifier
     startTime: string;
     location: string;
     notes: string;
-    totalParticipants: number;
+    totalParticipants?: number;
 }
