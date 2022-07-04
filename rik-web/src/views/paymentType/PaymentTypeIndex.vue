@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { usePaymentTypeStore } from '@/stores/paymentTypeStore';
-
+import router from '@/router/router';
 
 const paymentTypeStore = usePaymentTypeStore();
 await paymentTypeStore.fillPaymentTypes();
@@ -17,6 +17,8 @@ async function deletePaymentType(id: string | undefined) {
 
 <template>
     <div class="container">
+        <h4 type="button" v-on:click="router.push(`/`)" class="h4"><i class="bi bi-arrow-left"></i></h4>
+        
         <h4 class="display-6">Maksetüübid</h4>
 
         <table class="table table-borderless">

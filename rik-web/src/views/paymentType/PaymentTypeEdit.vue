@@ -40,7 +40,7 @@ async function updatePaymentType(): Promise<void> {
 
 <template>
 <div class="container">
-    <h4 type="button" v-on:click="router.push(`/paymenttypes`)" class="display-6"><i class="bi bi-arrow-left"></i></h4>
+    <h4 type="button" v-on:click="router.push(`/paymenttypes`)" class="h4"><i class="bi bi-arrow-left"></i></h4>
 <h4 class="display-6">Muuda</h4>
 
 <div class="mb-3">
