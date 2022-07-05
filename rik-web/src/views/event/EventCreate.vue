@@ -29,7 +29,7 @@ async function createEvent(): Promise<void> {
 <template>
 <div class="container">
     <h4 type="button" v-on:click="router.push(`/`)" class="h4"><i class="bi bi-arrow-left"></i></h4>
-<h4 class="display-6">Uus sündmus</h4>
+<h4 class="display-6">Uus üritus</h4>
 
 <div class="mb-3">
     <label class="form-label">Ürituse nimi</label>
@@ -46,9 +46,11 @@ async function createEvent(): Promise<void> {
 <div class="mb-3">
     <label class="form-label">Lisainfo</label>
     <input v-model="notes" type="text" class="form-control">
-    <div v-if="notes.length > 1000" class="text-danger">Maksimaalselt 1000 tähemärki!</div>
+    <div v-if="notes.length > 1000" class="small text-danger">Maksimaalselt 1000 tähemärki!</div>
 </div>
-<button v-on:click="createEvent()" type="button" class="btn btn-outline-primary">Loo</button>
+
+<button v-if="notes.length > 1000" v-on:click="createEvent()" type="button" class="btn btn-outline-primary disabled">Loo</button>
+<button v-else v-on:click="createEvent()" type="button" class="btn btn-outline-primary">Loo</button>
 
 </div>
 </template>
