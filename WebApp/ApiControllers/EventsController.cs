@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using DTO.Public;
 using AutoMapper;
 using BLL.Interfaces.App;
+using System.Globalization;
 
 namespace WebApp.ApiControllers
 {
@@ -101,6 +102,7 @@ namespace WebApp.ApiControllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Events'  is null.");
             }
+                       
             var newId = _bll.Events.Add(_mapper.Map(@event)).Id;
             await _bll.SaveChangesAsync();
 

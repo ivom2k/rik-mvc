@@ -14,30 +14,64 @@ const notes: Ref<string> = ref("");
 const nameErrorMessageHtml = ref(``);
 const startTimeErrorMessageHtml = ref(``);
 const locationErrorMessageHtml = ref(``);
+const missingValueMessage = `<div class="small text-danger">Sisesta väärtus!</div>`;
+const startTimeFormatValidation = ref(``);
+const startTimePastValidation = ref(``);
 
 watch(name, (newName) => {
     if (newName.length === 0) {
-        nameErrorMessageHtml.value = `<div class="small text-danger">Sisesta väärtus!</div>`;
+        nameErrorMessageHtml.value = missingValueMessage;
+    } else {
+        nameErrorMessageHtml.value = ``;
     }
 })
 
 watch(startTime, (newStartTime) => {
+    const startTimeRegex = new RegExp('^\\d+.\\d+.\\d+\\s\\d+\\:\\d\\d$');
+
     if (newStartTime.length === 0) {
-        startTimeErrorMessageHtml.value = `<div class="small text-danger">Sisesta väärtus!</div>`;
+        startTimeErrorMessageHtml.value = missingValueMessage;
+    } else {
+        startTimeErrorMessageHtml.value = ``;
+    }
+    
+    if (!startTimeRegex.test(newStartTime)){
+        startTimeFormatValidation.value = `<div class="small text-danger">Kuupäev peab järgima pp.kk.aaaa hh.mm formaati!</div>`;
+    } else {
+        startTimeFormatValidation.value = ``;
+    }
+
+    if (dateIsInThePast(new Date(parseStartTime(startTime.value)))) {
+        startTimePastValidation.value = `<div class="small text-danger">Kuupäev ei tohi olla minevikus!</div>`
+    } else {
+        startTimePastValidation.value = ``
     }
 })
 
 watch(location, (newLocation) => {
     if (newLocation.length === 0) {
-        locationErrorMessageHtml.value = `<div class="small text-danger">Sisesta väärtus!</div>`;
+        locationErrorMessageHtml.value = missingValueMessage;
+    } else {
+        locationErrorMessageHtml.value = ``;
     }
 })
 
-async function createEvent(): Promise<void> {
+function dateIsInThePast(date: Date) {
+    return date < new Date();
+}
+
+function parseStartTime(startTime: string) {
+    const [date, time] = startTime.split(" ");
+    const [day, month, year] = date.split(".");
+    return `${year}-${month}-${day}T${time}:00`;
+}
+
+async function createEvent(): Promise<void> {       
+
     await eventStore.createEvent(
         {
             name: name.value,
-            startTime: startTime.value,
+            startTime: parseStartTime(startTime.value),
             location: location.value,
             notes: notes.value
         }
@@ -60,8 +94,10 @@ async function createEvent(): Promise<void> {
         </div>
         <div class="mb-3">
             <label class="form-label">Toimumisaeg</label>
-            <input v-model="startTime" type="text" class="form-control">
+            <input v-model="startTime" type="text" class="form-control" placeholder="pp.kk.aaaa hh:mm">
             <div v-html="startTimeErrorMessageHtml"></div>
+            <div v-html="startTimeFormatValidation"></div>
+            <div v-html="startTimePastValidation"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">Asukoht</label>
