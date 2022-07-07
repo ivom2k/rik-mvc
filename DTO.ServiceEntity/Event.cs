@@ -9,7 +9,7 @@ public class Event : BaseEntityId
 
     public string Location { get; set; } = default!;
 
-    public string Notes { get; set; } = default!;
+    public string? Notes { get; set; } = default!;
 
     public int TotalParticipants { get; set; }
 

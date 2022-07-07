@@ -12,7 +12,7 @@ public class Person : BaseEntityId {
     public string PersonalIdentificationCode { get; set; } = default!;
 
     [MaxLength(1500)]
-    public string Notes { get; set; } = default!;
+    public string? Notes { get; set; } = default!;
 
     public ICollection<Participation>? Participations { get; set; }
 }

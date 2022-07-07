@@ -10,7 +10,7 @@ public class Event : BaseEntityId {
 
     public string Location { get; set; } = default!;
 
-    public string Notes { get; set; } = default!;
+    public string? Notes { get; set; } = default!;
 
     public ICollection<Participation>? Participations { get; set; }
 }

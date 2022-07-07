@@ -9,7 +9,7 @@ public class Person : BaseEntityId
 
     public string PersonalIdentificationCode { get; set; } = default!;
 
-    public string Notes { get; set; } = default!;
+    public string? Notes { get; set; } = default!;
 
     public string? FullName { get; set; } = default!;
 

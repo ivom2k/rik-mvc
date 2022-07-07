@@ -8,7 +8,7 @@ public class Event : BaseEntityId
 
     public string Location { get; set; } = default!;
 
-    public string Notes { get; set; } = default!;
+    public string? Notes { get; set; } = default!;
 
     public ICollection<DTO.RepositoryEntity.Participation>? Participations { get; set; }
 }

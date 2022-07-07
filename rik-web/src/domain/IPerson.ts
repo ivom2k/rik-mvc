@@ -5,6 +5,6 @@ export default interface IPerson extends IUniqueIdentifier
     firstName: string;
     lastName: string;
     personalIdentificationCode: number;
-    notes: string;
+    notes?: string;
     fullName?: string;
 }

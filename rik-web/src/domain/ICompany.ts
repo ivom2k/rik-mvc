@@ -5,5 +5,5 @@ export default interface ICompany extends IUniqueIdentifier
     name: string;
     code: number;
     participantsCount: number;
-    notes: string;
+    notes?: string;
 }
