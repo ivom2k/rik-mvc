@@ -84,8 +84,13 @@ async function createEvent(): Promise<void> {
 
 <template>
     <div class="container">
+        
         <h4 type="button" v-on:click="router.push(`/`)" class="h4"><i class="bi bi-arrow-left"></i></h4>
+        
+        <div class="d-flex flex-column">
         <h4 class="display-6">Uus üritus</h4>
+        <img src="../../img/libled-2.jpg" class="img-thumbnail" alt="Rohelised libled veepiiskadega">
+        </div>
 
         <div class="mb-3">
             <label class="form-label">Ürituse nimi</label>
