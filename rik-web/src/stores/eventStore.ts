@@ -23,6 +23,9 @@ export const useEventStore = defineStore("eventStore",
         async deleteEvent(id: string): Promise<void> {
             await eventService.RemoveAsync(id);
             await this.fillEvents();
+        },
+        async getEvents(): Promise<IEvent[]> {
+            return await eventService.GetAllAsync();
         }
     }
 })
