@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useEventStore } from '@/stores/eventStore';
+import fixStartTimeFormat from '@/helpers/helpers';
 
 const eventStore = useEventStore();
 eventStore.fillEvents();
@@ -10,14 +11,6 @@ async function deleteEvent(id: string | undefined): Promise<void> {
     }
 
     await eventStore.deleteEvent(id);
-}
-
-function fixStartTimeFormat(startTime: string) {
-    const [date, time] = startTime.split("T");
-    const [year, month, day] = date.split("-");
-    const [hours, minutes] = time.split(":");
-
-    return `${day}.${month}.${year} ${hours}:${minutes}`;
 }
 
 </script>
@@ -35,7 +28,7 @@ function fixStartTimeFormat(startTime: string) {
             <table class="table table-sm align-middle">
                 <thead>
                     <tr>
-                        <th colspan="6">Tulevased üritused</th>
+                        <th class="fs-4" colspan="6">Tulevased üritused</th>
                     </tr>
                     <tr>
                         <th>Nimi</th>
@@ -49,7 +42,7 @@ function fixStartTimeFormat(startTime: string) {
                 <tbody>
                     <tr v-for="upcomingEvent in eventStore.$state.events.filter((e) => new Date(e.startTime) > new Date())"
                         :key="upcomingEvent.id">
-                        <td>{{ upcomingEvent.name }}</td>
+                        <td><RouterLink v-bind:to="{ name: 'addparticipation', params: { id: upcomingEvent.id }}">{{ upcomingEvent.name }}</RouterLink></td>
                         <td>{{ fixStartTimeFormat(upcomingEvent.startTime) }}</td>
                         <td>{{ upcomingEvent.location }}</td>
                         <td>{{ upcomingEvent.totalParticipants }}</td>
@@ -63,7 +56,7 @@ function fixStartTimeFormat(startTime: string) {
             <table class="table table-sm align-middle">
                 <thead>
                     <tr>
-                        <th colspan="6">Toimunud üritused</th>
+                        <th class="fs-4" colspan="6">Toimunud üritused</th>
                     </tr>
                     <tr>
                         <th>Nimi</th>
