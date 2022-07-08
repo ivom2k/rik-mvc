@@ -17,7 +17,6 @@ async function deleteEvent(id: string | undefined): Promise<void> {
 
 <template>
     <div class="container">
-        <h4 class="display-6">Avaleht</h4>
         <div class="d-flex flex-row">
             <div class="bg-primary bg-gradient text-white flex-grow-1 border border-white rounded-1">
                 <h4 class="display-6">Nullam</h4>
@@ -42,7 +41,7 @@ async function deleteEvent(id: string | undefined): Promise<void> {
                 <tbody>
                     <tr v-for="upcomingEvent in eventStore.$state.events.filter((e) => new Date(e.startTime) > new Date())"
                         :key="upcomingEvent.id">
-                        <td><RouterLink v-bind:to="{ name: 'addparticipation', params: { id: upcomingEvent.id }}">{{ upcomingEvent.name }}</RouterLink></td>
+                        <td><RouterLink v-bind:to="{ name: 'eventparticipation', params: { id: upcomingEvent.id }}">{{ upcomingEvent.name }}</RouterLink></td>
                         <td>{{ fixStartTimeFormat(upcomingEvent.startTime) }}</td>
                         <td>{{ upcomingEvent.location }}</td>
                         <td>{{ upcomingEvent.totalParticipants }}</td>
