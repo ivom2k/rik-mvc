@@ -34,8 +34,8 @@ watch(startTime, (newStartTime) => {
     } else {
         startTimeErrorMessageHtml.value = ``;
     }
-    
-    if (!startTimeRegex.test(newStartTime)){
+
+    if (!startTimeRegex.test(newStartTime)) {
         startTimeFormatValidation.value = `<div class="small text-danger">Kuupäev peab järgima pp.kk.aaaa hh.mm formaati!</div>`;
     } else {
         startTimeFormatValidation.value = ``;
@@ -66,7 +66,7 @@ function parseStartTime(startTime: string) {
     return `${year}-${month}-${day}T${time}:00`;
 }
 
-async function createEvent(): Promise<void> {       
+async function createEvent(): Promise<void> {
 
     await eventStore.createEvent(
         {
@@ -84,14 +84,13 @@ async function createEvent(): Promise<void> {
 
 <template>
     <div class="container">
-        
-        <h4 type="button" v-on:click="router.push(`/`)" class="h4"><i class="bi bi-arrow-left"></i></h4>
-        
-        <div class="d-flex flex-column">
-        <h4 class="display-6">Uus üritus</h4>
-        <img src="../../img/libled-2.jpg" class="img-thumbnail" alt="Rohelised libled veepiiskadega">
+        <div class="d-flex flex-row">
+            <div class="bg-primary bg-gradient text-white flex-grow-1 border border-white rounded-1">
+                <h4 class="display-6">Uus üritus</h4>
+            </div>
+            <img src="../../img/libled-2.jpg" class="img-fluid border border-white rounded-1">
         </div>
-
+        <h4 type="button" v-on:click="router.push(`/`)" class="h4"><i class="bi bi-arrow-left"></i></h4>
         <div class="mb-3">
             <label class="form-label">Ürituse nimi</label>
             <input v-model="name" type="text" class="form-control">
@@ -116,10 +115,11 @@ async function createEvent(): Promise<void> {
         </div>
 
         <button v-if="notes.length > 1000" type="button" class="btn btn-outline-primary disabled">Loo</button>
-        <button v-else v-on:click="createEvent()" type="button" class="btn btn-outline-primary" v-bind:class="{ disabled : 
-        name.length === 0 || 
-        startTime.length === 0 || 
-        location.length === 0
+        <button v-else v-on:click="createEvent()" type="button" class="btn btn-outline-primary" v-bind:class="{
+            disabled:
+                name.length === 0 ||
+                startTime.length === 0 ||
+                location.length === 0
         }">Loo</button>
 
     </div>
