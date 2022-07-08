@@ -16,7 +16,7 @@ function fixStartTimeFormat(startTime: string) {
     const [date, time] = startTime.split("T");
     const [year, month, day] = date.split("-");
     const [hours, minutes] = time.split(":");
-    
+
     return `${day}.${month}.${year} ${hours}:${minutes}`;
 }
 
@@ -25,7 +25,12 @@ function fixStartTimeFormat(startTime: string) {
 <template>
     <div class="container">
         <h4 class="display-6">Avaleht</h4>
-
+        <div class="d-flex flex-row">
+            <div class="bg-primary bg-gradient text-white flex-grow-1 border border-white rounded-1">
+                <h4 class="display-6">Nullam</h4>
+            </div>
+            <img src="../../img/pilt.jpg" class="img-fluid border border-white rounded-1">
+        </div>
         <div class="d-flex flex-column">
             <table class="table table-sm align-middle">
                 <thead>
@@ -42,7 +47,8 @@ function fixStartTimeFormat(startTime: string) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="upcomingEvent in eventStore.$state.events.filter((e) => new Date(e.startTime) > new Date())" :key="upcomingEvent.id">
+                    <tr v-for="upcomingEvent in eventStore.$state.events.filter((e) => new Date(e.startTime) > new Date())"
+                        :key="upcomingEvent.id">
                         <td>{{ upcomingEvent.name }}</td>
                         <td>{{ fixStartTimeFormat(upcomingEvent.startTime) }}</td>
                         <td>{{ upcomingEvent.location }}</td>
@@ -67,7 +73,8 @@ function fixStartTimeFormat(startTime: string) {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="pastEvent in eventStore.$state.events.filter((e) => new Date(e.startTime) < new Date())" :key="pastEvent.id">
+                    <tr v-for="pastEvent in eventStore.$state.events.filter((e) => new Date(e.startTime) < new Date())"
+                        :key="pastEvent.id">
                         <td>{{ pastEvent.name }}</td>
                         <td>{{ fixStartTimeFormat(pastEvent.startTime) }}</td>
                         <td>{{ pastEvent.location }}</td>
@@ -76,5 +83,7 @@ function fixStartTimeFormat(startTime: string) {
                 </tbody>
             </table>
         </div>
+        <RouterLink to="/createevent"><button type="button" class="btn btn-outline-primary">Lisa üritus</button>
+        </RouterLink>
     </div>
 </template>
