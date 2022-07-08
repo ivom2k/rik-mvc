@@ -12,6 +12,14 @@ async function deleteEvent(id: string | undefined): Promise<void> {
     await eventStore.deleteEvent(id);
 }
 
+function fixStartTimeFormat(startTime: string) {
+    const [date, time] = startTime.split("T");
+    const [year, month, day] = date.split("-");
+    const [hours, minutes] = time.split(":");
+    
+    return `${day}.${month}.${year} ${hours}:${minutes}`;
+}
+
 </script>
 
 <template>
@@ -34,14 +42,12 @@ async function deleteEvent(id: string | undefined): Promise<void> {
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr v-for="upcomingEvent in upcomingEvents" :key="upcomingEvent.id"> -->
                     <tr v-for="upcomingEvent in eventStore.$state.events.filter((e) => new Date(e.startTime) > new Date())" :key="upcomingEvent.id">
                         <td>{{ upcomingEvent.name }}</td>
-                        <td>{{ upcomingEvent.startTime }}</td>
+                        <td>{{ fixStartTimeFormat(upcomingEvent.startTime) }}</td>
                         <td>{{ upcomingEvent.location }}</td>
                         <td>{{ upcomingEvent.totalParticipants }}</td>
                         <td>Lisa</td>
-                        <!-- <td><img type="button" v-on:click="deleteEvent(upcomingEvent.id)" src="../../img/remove.svg" height="20"></td> -->
                         <td><img type="button" v-on:click="deleteEvent(upcomingEvent.id)" src="../../img/remove.svg"
                                 height="20"></td>
                     </tr>
@@ -63,7 +69,7 @@ async function deleteEvent(id: string | undefined): Promise<void> {
                 <tbody>
                     <tr v-for="pastEvent in eventStore.$state.events.filter((e) => new Date(e.startTime) < new Date())" :key="pastEvent.id">
                         <td>{{ pastEvent.name }}</td>
-                        <td>{{ pastEvent.startTime }}</td>
+                        <td>{{ fixStartTimeFormat(pastEvent.startTime) }}</td>
                         <td>{{ pastEvent.location }}</td>
                         <td>{{ pastEvent.totalParticipants }}</td>
                     </tr>
