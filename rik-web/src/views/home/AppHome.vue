@@ -4,11 +4,13 @@ import { useEventStore } from '@/stores/eventStore';
 const eventStore = useEventStore();
 eventStore.fillEvents();
 
-const pastEvents = (await eventStore.getEvents()).filter((e) => new Date(e.startTime) < new Date());
-const upcomingEvents = (await eventStore.getEvents()).filter((e) => new Date(e.startTime) > new Date());
+async function deleteEvent(id: string | undefined): Promise<void> {
+    if (id === undefined) {
+        return;
+    }
 
-console.log(upcomingEvents);
-console.log(pastEvents);
+    await eventStore.deleteEvent(id);
+}
 
 </script>
 
@@ -16,8 +18,8 @@ console.log(pastEvents);
     <div class="container">
         <h4 class="display-6">Avaleht</h4>
 
-        <div class="d-flex flex-row">
-            <table class="table table-sm">
+        <div class="d-flex flex-column">
+            <table class="table table-sm align-middle">
                 <thead>
                     <tr>
                         <th colspan="6">Tulevased üritused</th>
@@ -32,18 +34,21 @@ console.log(pastEvents);
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="upcomingEvent in upcomingEvents" :key="upcomingEvent.id">
-                    <td>{{ upcomingEvent.name }}</td>
-                    <td>{{ upcomingEvent.startTime }}</td>
-                    <td>{{ upcomingEvent.location }}</td>
-                    <td>{{ upcomingEvent.totalParticipants }}</td>
-                    <td>Lisa</td>
-                    <td><img src="../../img/remove.svg"></td>
+                    <!-- <tr v-for="upcomingEvent in upcomingEvents" :key="upcomingEvent.id"> -->
+                    <tr v-for="upcomingEvent in eventStore.$state.events.filter((e) => new Date(e.startTime) > new Date())" :key="upcomingEvent.id">
+                        <td>{{ upcomingEvent.name }}</td>
+                        <td>{{ upcomingEvent.startTime }}</td>
+                        <td>{{ upcomingEvent.location }}</td>
+                        <td>{{ upcomingEvent.totalParticipants }}</td>
+                        <td>Lisa</td>
+                        <!-- <td><img type="button" v-on:click="deleteEvent(upcomingEvent.id)" src="../../img/remove.svg" height="20"></td> -->
+                        <td><img type="button" v-on:click="deleteEvent(upcomingEvent.id)" src="../../img/remove.svg"
+                                height="20"></td>
                     </tr>
                 </tbody>
             </table>
 
-            <table class="table table-sm">
+            <table class="table table-sm align-middle">
                 <thead>
                     <tr>
                         <th colspan="6">Toimunud üritused</th>
@@ -53,20 +58,17 @@ console.log(pastEvents);
                         <th>Aeg</th>
                         <th>Koht</th>
                         <th>Osavõtjate arv</th>
-                        <th>Kustuta</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="pastEvent in pastEvents" :key="pastEvent.id">
-                    <td>{{ pastEvent.name }}</td>
-                    <td>{{ pastEvent.startTime }}</td>
-                    <td>{{ pastEvent.location }}</td>
-                    <td>{{ pastEvent.totalParticipants }}</td>
-                    <td><img src="../../img/remove.svg"></td>
+                    <tr v-for="pastEvent in eventStore.$state.events.filter((e) => new Date(e.startTime) < new Date())" :key="pastEvent.id">
+                        <td>{{ pastEvent.name }}</td>
+                        <td>{{ pastEvent.startTime }}</td>
+                        <td>{{ pastEvent.location }}</td>
+                        <td>{{ pastEvent.totalParticipants }}</td>
                     </tr>
                 </tbody>
-                </table>
+            </table>
         </div>
-
     </div>
 </template>
