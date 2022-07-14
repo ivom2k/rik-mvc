@@ -10,6 +10,10 @@ import EventCreate from "../views/event/EventCreate.vue"
 
 import ParticipationEvent from "../views/participation/ParticipationEvent.vue"
 
+import CompanyEdit from "../views/company/CompanyEdit.vue"
+
+import PersonEdit from "../views/person/PersonEdit.vue"
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
@@ -20,7 +24,11 @@ const router = createRouter({
         { path: "/editpaymenttype/:id", name: "editpaymenttype", component: PaymentTypeEdit, props: true },
         { path: "/createevent", name: "createevent", component: EventCreate },
 
-        {path: "/eventparticipation/:id", name: "eventparticipation", component: ParticipationEvent, props: true}
+        {path: "/eventparticipation/:id", name: "eventparticipation", component: ParticipationEvent, props: true},
+
+        {path: "/personedit/:id", name: "personedit", component: PersonEdit, props: true},
+
+        {path: "/companyedit/:id", name: "companyedit", component: CompanyEdit, props: true}
     ]
 })
 
