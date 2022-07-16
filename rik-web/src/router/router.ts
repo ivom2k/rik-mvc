@@ -9,6 +9,7 @@ import PaymentTypeEdit from "../views/paymentType/PaymentTypeEdit.vue"
 import EventCreate from "../views/event/EventCreate.vue"
 
 import ParticipationEvent from "../views/participation/ParticipationEvent.vue"
+import ParticipationAdd from "../views/participation/ParticipationAdd.vue"
 
 import CompanyEdit from "../views/company/CompanyEdit.vue"
 
@@ -28,7 +29,9 @@ const router = createRouter({
 
         {path: "/personedit/:id", name: "personedit", component: PersonEdit, props: true},
 
-        {path: "/companyedit/:id", name: "companyedit", component: CompanyEdit, props: true}
+        {path: "/companyedit/:id", name: "companyedit", component: CompanyEdit, props: true},
+
+        {path: "/addparticipation/:id", name: "addparticipation", component: ParticipationAdd, props: true}
     ]
 })
 

@@ -32,12 +32,12 @@ if (props.id !== undefined) {
 
 async function updateCompany() {
     await companystore.updateCompany(id,
-    {
-        id: id,
-        name: name.value,
-        code: code.value,
-        notes: notes.value
-    });
+        {
+            id: id,
+            name: name.value,
+            code: code.value,
+            notes: notes.value
+        });
 
     router.go(-1);
 }
@@ -46,6 +46,13 @@ async function updateCompany() {
 
 <template>
     <div class="container">
+
+        <div class="d-flex flex-row">
+            <div class="bg-primary bg-gradient text-white flex-grow-1 border border-white rounded-1">
+                <h4 class="display-6">Ettevõtte info</h4>
+            </div>
+            <img src="../../img/libled-2.jpg" class="img-fluid border border-white rounded-1">
+        </div>
 
         <h4 type="button" v-on:click="router.go(-1)" class="h4"><i class="bi bi-arrow-left"></i></h4>
 
