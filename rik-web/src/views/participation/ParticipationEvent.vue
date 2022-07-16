@@ -105,12 +105,12 @@ async function deleteItem(item: IPerson | ICompany) {
             </thead>
             <tbody>
                 <tr v-for="person in persons" v-bind:key="person.id">
-                    <RouterLink to="{ name: /personedit, props: person.id}"><td>{{ person.fullName }}</td></RouterLink>
+                    <td><RouterLink v-bind:to="{ name: 'personedit', params: { id: person.id}}">{{ person.fullName }}</RouterLink></td>
                     <td>{{ person.personalIdentificationCode }}</td>
                     <td><img type="button" v-on:click="deleteItem(person)" src="../../img/remove.svg" height="20"></td>
                 </tr>
                 <tr v-for="company in companies" v-bind:key="company.id">
-                    <RouterLink to="{ name: /companyedit, props: company.id }"><td>{{ company.name }}</td></RouterLink>
+                    <td><RouterLink v-bind:to="{ name: 'companyedit', params: { id: company.id }}">{{ company.name }}</RouterLink></td>
                     <td>{{ company.code }}</td>
                     <td><img type="button" v-on:click="deleteItem(company)" src="../../img/remove.svg" height="20"></td>
                 </tr>
