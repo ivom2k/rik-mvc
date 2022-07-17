@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type IPerson from '@/domain/IPerson';
-import router from '@/router/router';
-import { usePersonStore } from '@/stores/personStore';
+import type IPerson from '../../domain/IPerson';
+import router from '../../router/router';
+import { usePersonStore } from '../../stores/personStore';
 import { ref, type Ref } from 'vue';
 
 
