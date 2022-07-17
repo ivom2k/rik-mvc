@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type ICompany from '@/domain/ICompany';
-import { useCompanyStore } from '@/stores/companyStore';
-import router from '@/router/router';
+import type ICompany from '../../domain/ICompany';
+import { useCompanyStore } from '../../stores/companyStore';
+import router from '../../router/router';
 import { ref, type Ref } from 'vue';
 
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import router from '@/router/router';
-import { useEventStore } from '@/stores/eventStore';
+import router from '../../router/router';
+import { useEventStore } from '../../stores/eventStore';
 import { type Ref, ref, watch } from 'vue';
 
 

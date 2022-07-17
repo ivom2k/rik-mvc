@@ -23,6 +23,9 @@ export const usePersonStore = defineStore("personStore",
         async deletePerson(id: string): Promise<void> {
             await personService.RemoveAsync(id);
             await this.fillPersons();
+        },
+        async addPerson(person: IPerson): Promise<IPerson> {
+            return await personService.CreateAsync(person);
         }
     }
 })

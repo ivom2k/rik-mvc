@@ -28,19 +28,18 @@ const event = eventStore.$state.events.find((e) => e.id === props.id);
 
         <h4 type="button" v-on:click="router.go(-1)" class="h4"><i class="bi bi-arrow-left"></i></h4>
 
-        <div class="form-check">
+        <div class="form-check form-check-inline">
             <label class="form-check-label">
                 <input class="form-check-input" type="radio" v-model="activeComponent" :value="AppPerson"> Isik
             </label>
         </div>
-        <div class="form-check">
+        <div class="form-check form-check-inline">
             <label class="form-check-label">
                 <input class="form-check-input" type="radio" v-model="activeComponent" :value="AppCompany"> Ettevõte
             </label>
-            <Transition name="fade" mode="out-in">
-                <component v-bind:is="activeComponent" v-bind:eventId="props.id"></component>
-            </Transition>
         </div>
-
+        <Transition name="fade" mode="out-in">
+            <component v-bind:is="activeComponent" v-bind:eventId="props.id"></component>
+        </Transition>
     </div>
 </template>

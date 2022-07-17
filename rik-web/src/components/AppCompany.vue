@@ -10,15 +10,15 @@ const props = defineProps({
     eventId: String
 });
 
-async function createCompanyParticipation(): Promise<void>{
+async function createCompanyParticipation(): Promise<void> {
     console.log(`createCompanyParticipation`);
 }
 
 </script>
 
 <template>
-<div>
-            <div class="mb-3">
+    <div>
+        <div class="mb-3">
             <label class="form-label">Nimi</label>
             <input v-model="name" type="text" class="form-control">
         </div>
@@ -31,6 +31,7 @@ async function createCompanyParticipation(): Promise<void>{
             <input v-model="notes" type="text" class="form-control">
         </div>
 
-        <button v-on:click="createCompanyParticipation()" type="button" class="btn btn-outline-primary">Salvesta</button>
-</div>
+        <button v-on:click="createCompanyParticipation()" type="button"
+            class="btn btn-outline-primary">Salvesta</button>
+    </div>
 </template>

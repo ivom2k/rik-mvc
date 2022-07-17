@@ -9,8 +9,6 @@ export default class BaseService<TEntity>
     }
 
     async GetAllAsync(): Promise<TEntity[]>{
-        let result: Array<TEntity> = [];
-
         const response = await httpClient.get(`${this.path}`,
         {
             headers: {
@@ -42,6 +40,18 @@ export default class BaseService<TEntity>
         )
         
         return result.status;
+    }
+
+    async CreateAsync(entity: TEntity): Promise<TEntity> {
+        const result = await httpClient.post(`${this.path}`, entity,
+            {
+                headers: {
+                    "Content-type": "application/json"
+                }
+            }
+        )
+
+        return result.data;
     }
 
     async RemoveAsync(id: string): Promise<number> {

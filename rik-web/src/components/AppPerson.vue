@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { usePersonStore } from '../stores/personStore';
 import { type Ref, ref } from 'vue';
+import type IPerson from '../domain/IPerson';
+
+const personStore = usePersonStore();
 
 const firstName: Ref<string> = ref("");
 const lastName: Ref<string> = ref("");
@@ -11,7 +15,15 @@ const props = defineProps({
 });
 
 async function createPersonParticipation(): Promise<void> {
-    console.log(`createPersonParticipation`);
+    const personResponse: IPerson = await personStore.addPerson(
+        {
+            firstName: firstName.value,
+            lastName: lastName.value,
+            personalIdentificationCode: personalIdentificationCode.value,
+            notes: notes.value
+        });
+
+    console.log(personResponse.id);
 }
 
 </script>
@@ -28,7 +40,7 @@ async function createPersonParticipation(): Promise<void> {
         </div>
         <div class="mb-3">
             <label class="form-label">Isikukood</label>
-            <input v-model="personalIdentificationCode" type="number" class="form-control">
+            <input v-model="personalIdentificationCode" type="text" class="form-control">
         </div>
         <div class="mb-3">
             <label class="form-label">Märkmed</label>
