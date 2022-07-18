@@ -22,6 +22,9 @@ export const useCompanyStore = defineStore("companyStore", {
         async deleteCompany(id: string): Promise<void> {
             await companyService.RemoveAsync(id);
             await this.fillCompanies();
+        },
+        async addCompany(company: ICompany): Promise<ICompany> {
+            return await companyService.CreateAsync(company);
         }
     }
 })

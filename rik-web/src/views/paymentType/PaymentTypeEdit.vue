@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type IPaymentType from '@/domain/IPaymentType';
-import router from '@/router/router';
-import { usePaymentTypeStore } from '@/stores/paymentTypeStore';
+import type IPaymentType from '../../domain/IPaymentType';
+import router from '../../router/router';
+import { usePaymentTypeStore } from '../../stores/paymentTypeStore';
 import { ref, type Ref } from 'vue';
 
 const paymentTypeStore = usePaymentTypeStore();
@@ -33,14 +33,14 @@ async function updatePaymentType(): Promise<void> {
         type: type.value
     });
 
-    router.push("/paymenttypes");
+    router.go(-1);
 }
 
 </script>
 
 <template>
 <div class="container">
-    <h4 type="button" v-on:click="router.push(`/paymenttypes`)" class="h4"><i class="bi bi-arrow-left"></i></h4>
+    <h4 type="button" v-on:click="router.go(-1)" class="h4"><i class="bi bi-arrow-left"></i></h4>
 <h4 class="display-6">Muuda</h4>
 
 <div class="mb-3">

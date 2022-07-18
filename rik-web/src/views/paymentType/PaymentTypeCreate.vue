@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import router from '@/router/router';
-import { usePaymentTypeStore } from '@/stores/paymentTypeStore';
+import router from '../../router/router';
+import { usePaymentTypeStore } from '../../stores/paymentTypeStore';
 import { type Ref, ref } from 'vue';
 
 const paymentTypeStore = usePaymentTypeStore();
@@ -13,7 +13,7 @@ async function createPaymentType(): Promise<void> {
             type: type.value
         });
 
-        router.push("/paymenttypes");
+        router.go(-1);
 }
 
 </script>
@@ -21,8 +21,7 @@ async function createPaymentType(): Promise<void> {
 <template>
 <div class="container">
 
-    <h4 type="button" v-on:click="router.push(`/paymenttypes`)" class="h4"><i class="bi bi-arrow-left"></i></h4>
-    <!-- <button v-on:click="router.push(`/paymenttypes`)" type="button" class="btn btn-outline-primary btn-sm">Tagasi</button> -->
+    <h4 type="button" v-on:click="router.go(-1)" class="h4"><i class="bi bi-arrow-left"></i></h4>
 <h4 class="display-6">Loo</h4>
 
 <div class="mb-3">

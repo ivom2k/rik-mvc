@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useEventStore } from '@/stores/eventStore';
-import { useParticipationStore } from '@/stores/participationStore';
-import { fixStartTimeFormat, isICompany, isIPerson } from '@/helpers/helpers';
-import router from '@/router/router';
-import { usePersonStore } from '@/stores/personStore';
-import { useCompanyStore } from '@/stores/companyStore';
-import type IPerson from '@/domain/IPerson';
-import type ICompany from '@/domain/ICompany';
-import type IParticipation from '@/domain/IParticipation';
+import { useEventStore } from '../../stores/eventStore';
+import { useParticipationStore } from '../../stores/participationStore';
+import { fixStartTimeFormat, isICompany, isIPerson } from '../../helpers/helpers';
+import router from '../../router/router';
+import { usePersonStore } from '../../stores/personStore';
+import { useCompanyStore } from '../../stores/companyStore';
+import type IPerson from '../../domain/IPerson';
+import type ICompany from '../../domain/ICompany';
+import type IParticipation from '../../domain/IParticipation';
 import { ref, type Ref } from 'vue';
 
 const participationStore = useParticipationStore();
@@ -59,8 +59,9 @@ async function deleteItem(item: IPerson | ICompany) {
         if (item.id !== undefined) {
             await personStore.deletePerson(item.id);
         }
-
-    } else if (isICompany(item)) {
+    } 
+    
+    if (isICompany(item)) {
         participationId = participations.find((p) => p.companyId === item.id && p.eventId === event?.id)?.id;
 
         if (participationId !== undefined) {
@@ -68,7 +69,7 @@ async function deleteItem(item: IPerson | ICompany) {
         }
 
         companies.value = companies.value.filter((c) => c.id !== item.id);
-
+        
         if (item.id !== undefined) {
             await companyStore.deleteCompany(item.id);
         }
