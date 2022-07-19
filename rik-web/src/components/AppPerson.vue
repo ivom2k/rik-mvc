@@ -6,7 +6,8 @@ import { useParticipationStore } from '../stores/participationStore';
 import { usePaymentTypeStore } from '../stores/paymentTypeStore';
 import type IPaymentType from '../domain/IPaymentType';
 import router from '../router/router';
-import { computed } from 'vue';
+import { computed, watch } from 'vue';
+import { verifyPersonalIdentificationCode }from "../helpers/helpers"
 
 const props = defineProps({
     eventId: String
@@ -21,11 +22,26 @@ const firstName: Ref<string> = ref("");
 const lastName: Ref<string> = ref("");
 const personalIdentificationCode: Ref<number> = ref(0);
 const notes: Ref<string | undefined> = ref("");
+const personalIdentificationCodeLengthErrorHtml: Ref<string> = ref("");
+const personalIdentificationCodeVerifyErrorHtml: Ref<string> = ref("");
 const paymentTypes = computed(() => {
     return paymentTypeStore.$state.paymentTypes as IPaymentType[];
 })
 
 const paymentTypeId = ref(paymentTypes.value.at(0)?.id);
+
+watch(personalIdentificationCode, (newPersonalIdentificationCode) => {
+
+    if (newPersonalIdentificationCode.toString().length < 11 || newPersonalIdentificationCode.toString().length > 11) {
+        personalIdentificationCodeLengthErrorHtml.value = `<div class="small text-danger">Isikukood peab olema 11 numbrit!</div>`;
+    } else if (!verifyPersonalIdentificationCode(newPersonalIdentificationCode.toString())) {
+        personalIdentificationCodeLengthErrorHtml.value = ``;
+        personalIdentificationCodeVerifyErrorHtml.value = `<div class="small text-danger">Isikukood ei ole õige!</div>`;
+    } else {
+        personalIdentificationCodeLengthErrorHtml.value = ``;
+        personalIdentificationCodeVerifyErrorHtml.value = ``;
+    }
+})
 
 async function createPersonParticipation(): Promise<void> {
     const personPostResponse: IPerson = await personStore.addPerson(
@@ -68,6 +84,8 @@ async function deletePaymentType(id: string | undefined) {
         <div class="mb-3">
             <label class="form-label">Isikukood</label>
             <input v-model="personalIdentificationCode" type="text" class="form-control">
+            <div v-html="personalIdentificationCodeLengthErrorHtml"></div>
+            <div v-html="personalIdentificationCodeVerifyErrorHtml"></div>
         </div>
         <div class="mb-3">
             <label class="form-label">Märkmed</label>
@@ -89,7 +107,12 @@ async function deletePaymentType(id: string | undefined) {
             </select>
         </div>
 
-        <button v-on:click="createPersonParticipation()" type="button" class="btn btn-outline-primary">Salvesta</button>
+        <button v-on:click="createPersonParticipation()" type="button" class="btn btn-outline-primary" v-bind:class="{
+            disabled:
+                firstName.length === 0 ||
+                lastName.length === 0 ||
+                personalIdentificationCode.toString().length === 0
+        }">Salvesta</button>
 
     </div>
 </template>
