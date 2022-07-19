@@ -44,7 +44,7 @@ async function createPersonParticipation(): Promise<void> {
         paymentTypeId: paymentTypeId.value
     });
 
-    router.go(-1);
+    router.push("/");
 }
 
 async function deletePaymentType(id: string | undefined) {

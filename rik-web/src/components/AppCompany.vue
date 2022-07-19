@@ -49,7 +49,7 @@ async function createCompanyParticipation(): Promise<void> {
         paymentTypeId: paymentTypeId.value
     });
 
-    router.go(-1);
+    router.push("/");
 }
 </script>
 
