@@ -1,4 +1,4 @@
-namespace Tests;
+namespace Tests.Integration;
 
 using System.Net;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -97,7 +97,8 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
 
         Assert.NotNull(personsFromRequestContent);
         Assert.Single(personsFromRequestContent);
+        Assert.NotNull(personsFromRequestContent[0]);
+        Assert.NotNull(personsFromRequestContent[0].FullName);
         Assert.Equal("Jüri Juurikas", personsFromRequestContent[0].FullName);
     }
-
 }

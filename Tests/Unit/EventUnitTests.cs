@@ -9,9 +9,9 @@ using UnitOfWork;
 using BLL.App;
 using Mappers.PublicEntity;
 
-namespace Tests;
+namespace Tests.Unit;
 
-public class EventTests
+public class EventUnitTests
 {
     private readonly ITestOutputHelper _testOutputHelper;
     private readonly ApplicationDbContext _context;
@@ -19,7 +19,7 @@ public class EventTests
     private readonly IAppUnitOfWork _uow;
     private readonly IAppBll _bll;
 
-    public EventTests(ITestOutputHelper testOutputHelper)
+    public EventUnitTests(ITestOutputHelper testOutputHelper)
     {
         _testOutputHelper = testOutputHelper;
 
