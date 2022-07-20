@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useEventStore } from '@/stores/eventStore';
-import { fixStartTimeFormat } from '@/helpers/helpers';
+import { useEventStore } from '../../stores/eventStore';
+import { fixStartTimeFormat } from '../../helpers/helpers';
 
 const eventStore = useEventStore();
 eventStore.fillEvents();
