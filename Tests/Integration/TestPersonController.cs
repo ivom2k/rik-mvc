@@ -23,7 +23,7 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
 
     [Fact]
     public async void Test_Get_Persons_Returns_Ok() {
-        var response = await _client.GetAsync("api/Persons");
+        var response = await _client.GetAsync("api/persons");
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
