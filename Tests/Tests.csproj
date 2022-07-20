@@ -32,6 +32,7 @@
     <ProjectReference Include="..\UnitOfWork\UnitOfWork.csproj" />
     <ProjectReference Include="..\Mappers.PublicEntity\Mappers.PublicEntity.csproj" />
     <ProjectReference Include="..\DTO.ServiceEntity\DTO.ServiceEntity.csproj" />
+    <ProjectReference Include="..\WebApp\WebApp.csproj" />
   </ItemGroup>
 
 </Project>
