@@ -97,6 +97,7 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
 
         Assert.NotNull(personsFromRequestContent);
         Assert.Single(personsFromRequestContent);
+        Assert.Equal("Jüri Juurikas", personsFromRequestContent[0].FullName);
     }
 
 }
