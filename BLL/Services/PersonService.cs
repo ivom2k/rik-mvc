@@ -9,7 +9,7 @@ public class PersonService : BaseEntityService<DTO.ServiceEntity.Person, DTO.Rep
     {
     }
 
-    public async Task<IEnumerable<DTO.ServiceEntity.Person>> GetAllWithFullNameAsync()
+    public async Task<IEnumerable<DTO.ServiceEntity.Person?>> GetAllWithFullNameAsync()
     {
         var result = (await Repository.GetAllAsync()).Select(e => Mapper.Map(e)).ToList();
 
@@ -22,11 +22,14 @@ public class PersonService : BaseEntityService<DTO.ServiceEntity.Person, DTO.Rep
         return result;
     }
 
-    public async Task<DTO.ServiceEntity.Person> GetFirstOrDefaultWithFullNameAsync(Guid id)
+    public async Task<DTO.ServiceEntity.Person?> GetFirstOrDefaultWithFullNameAsync(Guid id)
     {
         var result = Mapper.Map((await Repository.FirstOrDefaultAsync(id)));
 
-        result.FullName = $"{result.FirstName} {result.LastName}";
+        if (result != null) {
+
+            result.FullName = $"{result.FirstName} {result.LastName}";
+        }
 
         return result;
     }

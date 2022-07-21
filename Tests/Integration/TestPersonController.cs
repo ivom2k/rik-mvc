@@ -70,7 +70,7 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
         new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
         Assert.NotNull(personFromRequestContent);
-        var personId = personFromRequestContent.Id;
+        var personId = personFromRequestContent!.Id;
 
         var personDeleteResponse = await _client.DeleteAsync($"api/persons/{personFromRequestContent.Id}");
 
@@ -109,7 +109,7 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
         new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
         Assert.NotNull(personsFromRequestContent);
-        Assert.NotNull(personsFromRequestContent[0]);
+        Assert.NotNull(personsFromRequestContent![0]);
         Assert.NotNull(personsFromRequestContent[0].FullName);
         Assert.Equal("Jüri Juurikas", personsFromRequestContent[0].FullName);
     }

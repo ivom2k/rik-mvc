@@ -65,7 +65,7 @@ public class Bll : BaseBll, IAppBll
             }
             else
             {
-                var company = await Companies.FirstOrDefaultAsync(participation.CompanyId.Value);
+                var company = await Companies.FirstOrDefaultAsync(participation.CompanyId!.Value);
 
                 totalParticipations += company.ParticipantsCount;
             }

@@ -114,7 +114,7 @@ public class EventUnitTests
 
         Assert.NotNull(result);
         Assert.IsType<DTO.Public.Event>(result);
-        Assert.Equal(1, result.TotalParticipants);
+        Assert.Equal(1, result!.TotalParticipants);
     }
 
     [Fact]
@@ -161,7 +161,7 @@ public class EventUnitTests
 
         Assert.NotNull(result);
         Assert.IsType<DTO.Public.Event>(result);
-        Assert.Equal(12, result.TotalParticipants);
+        Assert.Equal(12, result!.TotalParticipants);
     }
 
     [Fact]
@@ -226,6 +226,6 @@ public class EventUnitTests
 
         Assert.NotNull(result);
         Assert.IsType<DTO.Public.Event>(result);
-        Assert.Equal(3, result.TotalParticipants);
+        Assert.Equal(3, result!.TotalParticipants);
     }
 }

@@ -109,9 +109,9 @@ public class TestEventController : IClassFixture<CustomWebApplicationFactory<Pro
         Assert.NotNull(paymentTypeFromResponseContent);
         Assert.NotNull(personFromResponseContent);
       
-        var eventId = eventFromResponseContent.Id;
-        var paymentTypeId = paymentTypeFromResponseContent.Id;
-        var personId = personFromResponseContent.Id;
+        var eventId = eventFromResponseContent!.Id;
+        var paymentTypeId = paymentTypeFromResponseContent!.Id;
+        var personId = personFromResponseContent!.Id;
 
         var participation = new DTO.Public.Participation()
         {
@@ -145,7 +145,7 @@ public class TestEventController : IClassFixture<CustomWebApplicationFactory<Pro
         new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
         Assert.NotNull(eventFromRequestContent);
-        Assert.Equal(1, eventFromRequestContent.TotalParticipants);
+        Assert.Equal(1, eventFromRequestContent!.TotalParticipants);
         Assert.Equal(eventName, eventFromRequestContent.Name);
     }
 }
