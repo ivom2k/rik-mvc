@@ -19,6 +19,8 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
                 AllowAutoRedirect = false
             }
         );
+
+        
     }
 
     [Fact]
@@ -67,7 +69,7 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
 
     [Fact]
     public async void Test_Insert_Person_And_Get_Persons() {
-                var person = new DTO.Public.Person()
+        var person = new DTO.Public.Person()
         {
             FirstName = "Jüri",
             LastName = "Juurikas",

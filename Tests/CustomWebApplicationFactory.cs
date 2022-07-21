@@ -25,7 +25,7 @@ public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStar
             using var scope = sp.CreateScope();
             var scopedServices = scope.ServiceProvider;
             var db = scopedServices.GetRequiredService<ApplicationDbContext>();
-            
+                        
             db.Database.EnsureCreated();
         });
     }
