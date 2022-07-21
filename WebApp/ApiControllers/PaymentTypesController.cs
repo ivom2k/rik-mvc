@@ -27,7 +27,7 @@ namespace WebApp.ApiControllers
 
         // GET: api/PaymentTypes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PaymentType>>> GetPaymentTypes()
+        public async Task<ActionResult<IEnumerable<PaymentType?>>> GetPaymentTypes()
         {
             if (_bll.PaymentTypes == null)
             {
@@ -51,7 +51,7 @@ namespace WebApp.ApiControllers
                 return NotFound();
             }
 
-            return _mapper.Map(paymentType);
+            return _mapper.Map(paymentType)!;
         }
 
         // PUT: api/PaymentTypes/5
@@ -64,7 +64,7 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _bll.PaymentTypes.Update(_mapper.Map(paymentType));
+            _bll.PaymentTypes.Update(_mapper.Map(paymentType)!);
 
             try
             {
@@ -95,7 +95,7 @@ namespace WebApp.ApiControllers
                 return Problem("Entity set 'ApplicationDbContext.PaymentTypes'  is null.");
             }
             
-            var newId = _bll.PaymentTypes.Add(_mapper.Map(paymentType)).Id;
+            var newId = _bll.PaymentTypes.Add(_mapper.Map(paymentType)!).Id;
             await _bll.SaveChangesAsync();
             
             paymentType.Id = newId;

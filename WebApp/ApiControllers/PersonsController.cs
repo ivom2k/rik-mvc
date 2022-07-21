@@ -26,7 +26,7 @@ namespace WebApp.ApiControllers
 
         // GET: api/Persons
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Person>>> GetPersons()
+        public async Task<ActionResult<IEnumerable<Person?>>> GetPersons()
         {
             if (_bll.Persons == null)
             {
@@ -51,7 +51,7 @@ namespace WebApp.ApiControllers
                 return NotFound();
             }
 
-            return _mapper.Map(person);
+            return _mapper.Map(person)!;
         }
 
         // PUT: api/Persons/5
@@ -64,7 +64,7 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _bll.Persons.Update(_mapper.Map(person));
+            _bll.Persons.Update(_mapper.Map(person)!);
 
             try
             {
@@ -95,7 +95,7 @@ namespace WebApp.ApiControllers
                 return Problem("Entity set 'ApplicationDbContext.Persons'  is null.");
             }
             
-            var newId = _bll.Persons.Add(_mapper.Map(person)).Id;
+            var newId = _bll.Persons.Add(_mapper.Map(person)!).Id;
             await _bll.SaveChangesAsync();
 
             person.Id = newId;
