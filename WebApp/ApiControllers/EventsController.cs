@@ -28,7 +28,7 @@ namespace WebApp.ApiControllers
 
         // GET: api/Events
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Event>>> GetEvents()
+        public async Task<ActionResult<IEnumerable<Event?>>> GetEvents()
         {
             if (_bll.Events == null)
             {
@@ -51,7 +51,7 @@ namespace WebApp.ApiControllers
             {
                 return NotFound();
             }
-            // var @event = await _bll.Events.FirstOrDefaultAsync(id);
+            
             var @event = await _bll.GetEventWithParticipantsCount(id);
 
             if (@event == null)
@@ -59,7 +59,7 @@ namespace WebApp.ApiControllers
                 return NotFound();
             }
 
-            return _mapper.Map(@event);
+            return _mapper.Map(@event)!;
         }
 
         // PUT: api/Events/5
@@ -72,7 +72,7 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _bll.Events.Update(_mapper.Map(@event));
+            _bll.Events.Update(_mapper.Map(@event)!);
 
             try
             {
@@ -103,7 +103,7 @@ namespace WebApp.ApiControllers
                 return Problem("Entity set 'ApplicationDbContext.Events'  is null.");
             }
                        
-            var newId = _bll.Events.Add(_mapper.Map(@event)).Id;
+            var newId = _bll.Events.Add(_mapper.Map(@event)!).Id;
             await _bll.SaveChangesAsync();
 
             @event.Id = newId;

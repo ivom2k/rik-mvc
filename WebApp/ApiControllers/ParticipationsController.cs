@@ -26,7 +26,7 @@ namespace WebApp.ApiControllers
 
         // GET: api/Participations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Participation>>> GetParticipations([FromQuery] string? IdEvent)
+        public async Task<ActionResult<IEnumerable<Participation?>>> GetParticipations([FromQuery] string? IdEvent)
         {
             if (_bll.Participations == null)
             {
@@ -58,7 +58,7 @@ namespace WebApp.ApiControllers
                 return NotFound();
             }
 
-            return _mapper.Map(participation);
+            return _mapper.Map(participation)!;
         }
 
         // PUT: api/Participations/5
@@ -71,7 +71,7 @@ namespace WebApp.ApiControllers
                 return BadRequest();
             }
 
-            _bll.Participations.Update(_mapper.Map(participation));
+            _bll.Participations.Update(_mapper.Map(participation)!);
 
             try
             {
@@ -101,7 +101,7 @@ namespace WebApp.ApiControllers
             {
                 return Problem("Entity set 'ApplicationDbContext.Participations'  is null.");
             }
-            var newId = _bll.Participations.Add(_mapper.Map(participation)).Id;
+            var newId = _bll.Participations.Add(_mapper.Map(participation)!).Id;
             await _bll.SaveChangesAsync();
 
             participation.Id = newId;

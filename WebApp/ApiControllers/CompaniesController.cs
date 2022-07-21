@@ -27,23 +27,25 @@ namespace WebApp.ApiControllers
 
         // GET: api/Companies
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Company>>> GetCompanies()
+        public async Task<ActionResult<IEnumerable<Company?>>> GetCompanies()
         {
             if (_bll.Companies == null)
             {
                 return NotFound();
             }
+            
             return (await _bll.Companies.GetAllAsync()).Select(e => _mapper.Map(e)).ToList();
         }
 
         // GET: api/Companies/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Company>> GetCompany(Guid id)
+        public async Task<ActionResult<Company?>> GetCompany(Guid id)
         {
             if (_bll.Companies == null)
             {
                 return NotFound();
             }
+            
             var company = await _bll.Companies.FirstOrDefaultAsync(id);
 
             if (company == null)
@@ -69,7 +71,7 @@ namespace WebApp.ApiControllers
                 return NotFound();
             }
 
-            _bll.Companies.Update(_mapper.Map(company));
+            _bll.Companies.Update(_mapper.Map(company)!);
 
             try
             {
@@ -100,7 +102,7 @@ namespace WebApp.ApiControllers
                 return Problem("Entity set 'ApplicationDbContext.Companies'  is null.");
             }
             
-            var newId = _bll.Companies.Add(_mapper.Map(company)).Id;
+            var newId = _bll.Companies.Add(_mapper.Map(company)!).Id;
             await _bll.SaveChangesAsync();
 
             company.Id = newId;
