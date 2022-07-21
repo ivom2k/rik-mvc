@@ -321,14 +321,14 @@
         }
       }
     },
-    "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj",
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj",
         "projectName": "DTO.Public",
-        "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj",
         "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\obj\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -380,14 +380,14 @@
         }
       }
     },
-    "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj",
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj",
         "projectName": "DTO.RepositoryEntity",
-        "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj",
         "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\obj\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -550,14 +550,14 @@
         }
       }
     },
-    "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj": {
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj",
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj",
         "projectName": "Mappers.PublicEntity",
-        "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj",
         "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\obj\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -572,8 +572,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj"
               },
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj"
@@ -618,14 +618,14 @@
         }
       }
     },
-    "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj": {
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj",
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj",
         "projectName": "Mappers.RepositoryEntity",
-        "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj",
         "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\obj\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -643,8 +643,8 @@
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj"
               },
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
               },
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj"
@@ -708,8 +708,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
               },
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj"
@@ -779,11 +779,11 @@
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj"
               },
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj"
               },
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
               },
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.ServiceEntity\\DTO.ServiceEntity.csproj"
@@ -856,8 +856,8 @@
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain.Interfaces\\Domain.Interfaces.csproj"
               },
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
               }
             }
           }
@@ -890,14 +890,14 @@
         }
       }
     },
-    "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj": {
+    "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj",
+        "projectUniqueName": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj",
         "projectName": "Repositories",
-        "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj",
+        "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj",
         "packagesPath": "C:\\Users\\Ivo\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\obj\\",
+        "outputPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivo\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -918,8 +918,8 @@
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj"
               },
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.RepositoryEntity\\DTO.RepositoryEntity.csproj"
               },
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj"
@@ -992,8 +992,8 @@
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.Interfaces\\Mappers.Interfaces.csproj"
               },
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.RepositoryEntity\\Mappers.RepositoryEntity.csproj"
               },
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj"
@@ -1001,8 +1001,8 @@
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories.Interfaces\\Repositories.Interfaces.csproj"
               },
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Repositories\\Repositories.csproj"
               }
             }
           }
@@ -1076,11 +1076,11 @@
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Domain\\Domain.csproj"
               },
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\DTO.Public\\DTO.Public.csproj"
               },
-              "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj": {
-                "projectPath": "c:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj"
+              "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj": {
+                "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers.PublicEntity\\Mappers.PublicEntity.csproj"
               },
               "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj": {
                 "projectPath": "C:\\Users\\Ivo\\VS Code Repos\\rik-mvc\\Mappers\\Mappers.csproj"

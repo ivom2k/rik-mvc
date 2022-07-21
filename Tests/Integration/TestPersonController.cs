@@ -31,7 +31,7 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
     }
 
     [Fact]
-    public async void Test_Get_Persons_Returns_Empty_Array() {
+    public async void Test_Get_Persons_Returns_Array() {
         var getPersonsRequest = new HttpRequestMessage();
         getPersonsRequest.Method = HttpMethod.Get;
         getPersonsRequest.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -46,11 +46,10 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
         new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
         Assert.NotNull(personsFromRequestContent);
-        Assert.Empty(personsFromRequestContent);
     }
 
     [Fact]
-    public async void Test_Insert_Person_Returns_Created() {
+    public async void Test_Insert_Person_Returns_Created_And_Deleted_Returns_No_Content() {
         var person = new DTO.Public.Person()
         {
             FirstName = "Jüri",
@@ -65,6 +64,18 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
 
         personPostResponse.EnsureSuccessStatusCode();
         Assert.Equal(HttpStatusCode.Created, personPostResponse.StatusCode);
+
+        var getPersonRequestContent = await personPostResponse.Content.ReadAsStringAsync();
+        var personFromRequestContent = JsonSerializer.Deserialize<DTO.Public.Person>(getPersonRequestContent,
+        new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
+
+        Assert.NotNull(personFromRequestContent);
+        var personId = personFromRequestContent.Id;
+
+        var personDeleteResponse = await _client.DeleteAsync($"api/persons/{personFromRequestContent.Id}");
+
+        Assert.NotNull(personDeleteResponse);
+        Assert.Equal(HttpStatusCode.NoContent, personDeleteResponse.StatusCode);
     }
 
     [Fact]
@@ -98,7 +109,6 @@ public class TestPersonController : IClassFixture<CustomWebApplicationFactory<Pr
         new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase });
 
         Assert.NotNull(personsFromRequestContent);
-        Assert.Single(personsFromRequestContent);
         Assert.NotNull(personsFromRequestContent[0]);
         Assert.NotNull(personsFromRequestContent[0].FullName);
         Assert.Equal("Jüri Juurikas", personsFromRequestContent[0].FullName);
