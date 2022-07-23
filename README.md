@@ -11,20 +11,25 @@ Diagram kirjeldab C# keele olemite atribuute ja nende tüüpe, mitte andmebaasi 
 
     Eelduseks on Visual Studio Code ja Docker-i olemasolu
 
-    1. Repositooriumi kloonimisel või allalaadimisel tuleb navigeerida projekti kausta
+    1. Repositooriumi kloonimiseks:
+        1.1 git clone https://github.com/ivom2k/rik-mvc.git
+        1.2 cd rik-mvc
     2. ASP.NET MVC vajalike teekide allalaadimiseks ning projekti ehitamiseks:
         2.1 dotnet build
+        2.2 dotnet dev-certs https --trust
     3. Vue.js eesrakenduse jaoks vajalikud sammud:
         3.1 cd rik-web
         3.2 npm run install
     4. Andmebaasi jaoks konteineri käivitamine (projekti juurkaustas):
         4.1 docker-compose up -d
-    5. Rakenduste käivitamiseks:
-        5.1 Tagarakenduse käivitamiskes:
-            5.1.1 dotnet run --project WebApp
-        5.2 Eesrakenduse käivitamiseks:
-            5.2.1 cd rik-web
-            5.2.2 npm run dev
+    5. Andmebaasi tabelite loomiseks:
+        5.1 dotnet ef migrations --project Domain --startup-project WebApp
+    6. Rakenduste käivitamiseks:
+        6.1 Tagarakenduse käivitamiskes:
+            6.1.1 dotnet run --project WebApp
+        6.2 Eesrakenduse käivitamiseks:
+            6.2.1 cd rik-web
+            6.2.2 npm run dev
 
 ## Rakenduse arhitektuur:
 
