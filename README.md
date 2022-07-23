@@ -9,7 +9,22 @@ Diagram kirjeldab C# keele olemite atribuute ja nende tüüpe, mitte andmebaasi 
 
 ## Rakenduse paigaldamine:
 
-    Tekst
+    Eelduseks on Visual Studio Code ja Docker-i olemasolu
+
+    1. Repositooriumi kloonimisel või allalaadimisel tuleb navigeerida projekti kausta
+    2. ASP.NET MVC vajalike teekide allalaadimiseks ning projekti ehitamiseks:
+        2.1 dotnet build
+    3. Vue.js eesrakenduse jaoks vajalikud sammud:
+        3.1 cd rik-web
+        3.2 npm run install
+    4. Andmebaasi jaoks konteineri käivitamine (projekti juurkaustas):
+        4.1 docker-compose up -d
+    5. Rakenduste käivitamiseks:
+        5.1 Tagarakenduse käivitamiskes:
+            5.1.1 dotnet run --project WebApp
+        5.2 Eesrakenduse käivitamiseks:
+            5.2.1 cd rik-web
+            5.2.2 npm run dev
 
 ## Rakenduse arhitektuur:
 
