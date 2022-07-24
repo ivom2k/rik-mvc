@@ -65,7 +65,7 @@ Andmeid töödeldes liiguvad andmed läbi kõikide kihtide.
 | 15 | [WebApp](WebApp) | Sisaldab API kontrollereid ([ApiControllers](WebApp/ApiControllers)) ja olulist [Program.cs](WebApp/Program.cs) faili mis lisab vahekihid (<i>middleware</i>). Api kontrollerid kasutavad andmte väljastamiseks teenuseid ([Services](BLL/Services)) kuid andmed <i>mapitakse</i> enne väljastamist. |
 | 16 | [DTO.Public](DTO.Public) | Andmete transportimiseks mõeldud klassid mida kasutavad API kontrollerid. |
 | 17 | [Mappers.PublicEntity](Mappers.PublicEntity) | Baas<i>mapper</i>-it ([BaseMapper.cs](Mappers/BaseMapper.cs)) laiendavad <i>mapperid</i>, mis teisendavad teenuste olemid avalikeks, klientidele väljastavateks olemiteks ([DTO.Public](DTO.Public)) |
-| 18 | [Tests](Tests) | Moodultestid ja API kontrollerite testid |
+| 18 | [Tests](Tests) | Üksuste testid ([Unit](Tests/Unit)) ja API kontrollerite testid ([Integration](Tests/Integration)) |
 | 19 | [rik-web](rik-web) | Vue.js eesrakendus |
 
 ## Lahendamiseks kulunud aeg:
